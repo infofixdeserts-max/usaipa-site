@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="12" fill="#fcf8ef"/>
-<path d="M10 22 L54 14 L52 24 L12 32 Z" fill="#9a3c22"/>
-<path d="M12 32 L52 24 L50 34 L10 42 Z" fill="#3f3527"/>
-<path d="M10 42 L48 34 L46 44 L8 52 Z" fill="#c9a227"/>
-<path d="M32 8 L32 56" stroke="#7a7166" stroke-width="2.5" stroke-linecap="round"/>
+<rect width="64" height="64" fill="#FCF8EF"/>
+<path d="M10 18 L54 14 L52 30 L12 34 Z" fill="#9A3C22" stroke="#3F3527" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M14 36 L52 32 L50 46 L16 50 Z" fill="#3E5C76" stroke="#3F3527" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M12 20 C 16 26, 48 22, 52 16" fill="none" stroke="#FCF8EF" stroke-width="1.4" opacity=".7"/>
+<text x="30" y="60" font-family="Georgia" font-size="9" fill="#3F3527" text-anchor="middle" font-weight="bold">IPA</text>
 </svg>

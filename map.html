@@ -1,91 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Map | Independent Parties of America</title>
-<meta name="description" content="Search any town, county, state, or the federal level. See which community contexts exist, which agree, and where the chain is missing a link.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" href="favicon.png">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context Map | The Independent Parties of America</title>
+<meta name="description" content="Search registered community holistic contexts by nation, state, county, city, or town. See which levels exist and which are unlocked.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Independent Parties of America">
+<meta property="og:title" content="Context Map | The Independent Parties of America">
+<meta property="og:description" content="Search registered community holistic contexts by nation, state, county, city, or town. See which levels exist and which are unlocked.">
+<meta property="og:url" content="https://usaipa.org/map.html">
+<meta property="og:image" content="https://usaipa.org/images/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Context Map | The Independent Parties of America">
+<meta name="twitter:description" content="Search registered community holistic contexts by nation, state, county, city, or town. See which levels exist and which are unlocked.">
+<meta name="twitter:image" content="https://usaipa.org/images/hero.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://usaipa.org/map.html">
+
+<style>
+  :root{
+    --paper:#FCF8EF; --panel:#FFFDF6; --ink:#2B2622; --deep:#3F3527; --faint:#7A7166;
+    --rule:#B9AD9C; --rust:#9A3C22; --blue:#3E5C76; --gold:#C8A028;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif; line-height:1.65; font-size:17px;}
+  a{color:var(--rust);}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 22px;}
+  header.site{padding:26px 0 18px; border-bottom:2px solid var(--rule); background:var(--paper);}
+  .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
+  .brand img{width:52px; height:52px;}
+  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px; line-height:1.15;}
+  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase;}
+  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:4px 18px; font-size:15px;}
+  nav.main a{color:var(--deep); text-decoration:none; padding:6px 10px; border:1.6px solid transparent;}
+  nav.main a:hover{border:1.6px solid var(--rust);}
+  nav.main a.here{border:1.6px solid var(--rule);}
+  .sketch{position:relative;}
+  .sketch::before{content:""; position:absolute; inset:-4px; border:1.5px solid var(--rule);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; pointer-events:none; opacity:.65;}
+  .card{background:var(--panel); border:1.5px solid var(--rule);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:22px 24px; margin:22px 0;}
+  h1,h2,h3{color:var(--deep); font-weight:bold; line-height:1.2;}
+  h1{font-size:40px; margin:38px 0 8px;}
+  h2{font-size:26px; margin:30px 0 10px;}
+  h3{font-size:19px; margin:18px 0 6px;}
+  .sub{color:var(--rust); font-style:italic; font-size:19px; margin-bottom:16px;}
+  p{margin:0 0 14px;}
+  .btn{display:inline-block; padding:11px 22px; margin:6px 8px 6px 0; text-decoration:none; font-weight:bold;
+    color:var(--paper); background:var(--rust); border:1.5px solid var(--deep);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; box-shadow:2px 3px 0 rgba(63,53,39,.35);}
+  .btn.alt{background:var(--blue);}
+  .btn.ghost{background:transparent; color:var(--deep);}
+  .rule-line{border:none; border-top:2px solid var(--rule); margin:30px auto; width:120px;}
+  footer.site{margin-top:60px; padding:26px 0 40px; border-top:2px solid var(--rule);
+    color:var(--faint); font-size:14px;}
+  .share a{margin-right:14px; text-decoration:none;}
+  .stategrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px;}
+  .stategrid a{display:block; padding:7px 10px; text-decoration:none; color:var(--deep);
+    background:var(--panel); border:1.3px solid var(--rule);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; font-size:14.5px;}
+  .stategrid a:hover{border-color:var(--rust);}
+  table.src{width:100%; border-collapse:collapse; font-size:15px;}
+  table.src td, table.src th{border-bottom:1px solid var(--rule); padding:8px 6px; text-align:left; vertical-align:top;}
+  table.src a{word-break:break-all;}
+  .lvl{font-weight:bold;}
+  .ok{color:#3F6C3F;} .lock{color:var(--rust);}
+  .small{font-size:13.5px; color:var(--faint);}
+</style>
 </head>
 <body>
 <header class="site"><div class="wrap">
-<a class="logo" href="index.html"><img src="favicon.svg" alt="IPA pennants">Independent Parties of America</a>
-<nav>
- <a href="index.html">Home</a>
- <a href="book.html">Book and Sources</a>
- <a href="map.html" class="active">Map</a>
- <a href="register.html">Register a Context</a>
-</nav>
+  <a class="brand" href="/">
+    <img src="/favicon.svg" alt="IPA mark">
+    <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
+  </a>
+  <nav class="main">
+      <a href="/">Home</a>
+      <a href="/book.html">The Book</a>
+      <a href="/sources.html">Sources: Laws by State</a>
+      <a href="/map.html" class="here">Context Map</a>
+      <a href="/register.html">Register a Context</a>
+    </nav>
 </div></header>
+<main class="wrap">
 
-<section><div class="wrap">
- <h2>The map of contexts</h2>
- <p class="center" style="max-width:700px;margin:0 auto 26px;color:var(--faint)">Search for any place: a town, a county, a state, or the federal level. You will see the full chain from town to nation: which levels have a registered context, which have agreed, and which are missing. A higher level cannot exist unless every lower level exists and agrees.</p>
- <div id="mapsearch"><input id="q" type="search" placeholder="Search a town, county, or state..." style="font-size:1.1rem;padding:13px"></div>
- <div class="leveltabs" id="tabs">
-  <button data-lvl="all" class="active">All levels</button>
-  <button data-lvl="town">Town</button>
-  <button data-lvl="county">County</button>
-  <button data-lvl="state">State</button>
-  <button data-lvl="national">National</button>
- </div>
- <div id="results"></div>
-</div></section>
-
-<footer><div class="wrap">
-<p>Independent Parties of America &middot; usaipa.org</p>
-<p>Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.</p>
-</div></footer>
-<script src="app.js"></script>
+<h1>The Context Map</h1>
+<p class="sub">Find who has written down how they want to live - and where.</p>
+<p>Every registered community holistic context lives in a public registry, organized by place:
+nation, state, county, city or town, and neighborhood. Search below to see which contexts exist
+at each level, what they say, and whether the next level up is unlocked.</p>
+<div class="card sketch">
+<h3>Search the registry</h3>
+<input id="q" type="search" placeholder="Type a state, county, city, or town - e.g. Florida, Stuart, Martin County" style="width:100%; padding:10px 12px; font-size:16px; border:1.5px solid #B9AD9C; border-radius:12px; background:#FFFDF6; font-family:Georgia,serif;">
+<div id="results" style="margin-top:14px;"></div>
+</div>
+<div class="card"><h3>How the levels connect</h3>
+<p class="small">A higher-level context can only exist when every lower level under it has both (a) registered its
+own context and (b) agreed to send elected representatives to write the higher one. A missing lower level
+locks the higher one. This is by design: power flows upward as language, not as money.</p>
+<ul style="margin-left:20px;" class="small">
+<li><strong>National context</strong> - requires all 50 state contexts registered and in agreement</li>
+<li><strong>State context</strong> - requires all county contexts registered and in agreement</li>
+<li><strong>County context</strong> - requires the city/town contexts inside it</li>
+<li><strong>City or town context</strong> - the foundation; requires only its own people</li>
+</ul></div>
 <script>
-let LEVEL="all";
-document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active"); LEVEL=b.dataset.lvl; render();
-});
-function placeChain(place){
-  // Simulated chain: town < county < state < national. National context exists (the book itself).
-  // For the demo, county+town presence depends on registered contexts at this site.
-  const ctxs = contexts();
-  const has = (lvl) => ctxs.some(c=>c.place.toLowerCase()===place.toLowerCase() && c.level===lvl);
-  const agreed = (lvl) => { const cs=ctxs.filter(c=>c.place.toLowerCase()===place.toLowerCase()&&c.level===lvl); return has(lvl)&&ctxs.filter(c=>c.place.toLowerCase()===place.toLowerCase()&&c.level===lvl).every(c=>c.agreed); };
-  return [
-    {level:"town",   exists: has("town"),   agreed: agreed("town")},
-    {level:"county", exists: has("county"), agreed: agreed("county")},
-    {level:"state",  exists: has("state"),  agreed: agreed("state")},
-    {level:"national", exists: true, agreed: true}
-  ];
-}
+const REGISTRY_URL = "https://usaipa.org/registry/contexts.json";
+let REG = null;
+async function load(){ try { const r = await fetch(REGISTRY_URL); REG = await r.json(); } catch(e){ REG = {contexts:[]}; } render(); }
 function render(){
-  const q = el("q").value.trim();
-  const R = el("results");
-  if(!q){ R.innerHTML = '<p class="center" style="color:var(--faint)">Type a place to see its context chain.</p>'; return; }
-  const chain = placeChain(q).filter(c=>LEVEL==="all"||c.level===LEVEL);
-  const gate = gateCheck(placeChain(q));
-  let html = '<div class="card"><h3>'+esc(q)+'</h3>';
-  html += '<div class="chain">'+chain.map(c=>{
-    const cls = c.exists ? (c.agreed?"ok":"") : "missing";
-    const lbl = c.level.charAt(0).toUpperCase()+c.level.slice(1);
-    const st  = !c.exists ? "no context yet" : (c.agreed ? "context agreed" : "context registered, not yet agreed");
-    return '<span class="lvl '+cls+'">'+lbl+': '+st+'</span>';
-  }).join("")+'</div>';
-  html += '<p style="margin-top:12px">'+(gate.ok
-    ? "All lower levels exist and agree. A higher level context may be written for this place."
-    : "Higher level locked: "+[...gate.missing,...gate.disagreed].map(l=>l.level+" is "+(gate.missing.includes(l)?"missing":"not in agreement")).join("; ")+".")+'</p>';
-  const here = contexts().filter(c=>c.place.toLowerCase()===q.toLowerCase());
-  if(here.length){
-    html += '<table class="votes" style="margin-top:14px"><tr><th>Level</th><th>Registered</th><th>Status</th></tr>';
-    here.forEach(c=>{ html += "<tr><td>"+esc(c.level)+"</td><td>"+fmtDate(c.ts)+"</td><td><span class='status-chip "+(c.agreed?"agreed":"proposed")+"'>"+(c.agreed?"agreed":"proposed")+"</span></td></tr>"; });
-    html += "</table>";
-  } else {
-    html += '<p style="margin-top:12px"><a href="register.html">Register the first context for '+esc(q)+'</a></p>';
-  }
-  html += "</div>";
-  R.innerHTML = html;
+  const q = (document.getElementById("q").value||"").trim().toLowerCase();
+  const box = document.getElementById("results");
+  if(!REG || !REG.contexts.length){ box.innerHTML = '<p class="small">No contexts registered yet. Yours could be the first: <a href="/register.html">register a context</a>.</p>'; return; }
+  const hits = REG.contexts.filter(c => !q || (c.level+" "+c.place+" "+c.state+" "+c.title).toLowerCase().includes(q));
+  box.innerHTML = hits.length ? hits.map(c =>
+    '<div class="card" style="margin:10px 0;"><span class="lvl" style="color:var(--rust)">'+c.level+'</span> - <strong>'+c.title+'</strong>'+
+    '<br><span class="small">'+[c.place,c.state].filter(Boolean).join(", ")+
+    ' | registered '+c.date+' | '+c.signatures+' signatures | status: '+c.status+'</span>'+
+    (c.text ? '<br><p style="margin-top:8px;">'+c.text.slice(0,240)+'...</p>' : '')+'</div>').join("")
+    : '<p class="small">Nothing matches "'+q+'" yet.</p>';
 }
-el("q").addEventListener("input", render);
-render();
+document.getElementById("q").addEventListener("input", ()=>REG&&render());
+load();
 </script>
-</body></html>
+
+</main>
+<footer class="site"><div class="wrap">
+  <div class="share">
+    <a href="https://twitter.com/intent/tweet?text=The%20Independent%20Parties%20of%20America%20-%20a%20third%20foundation%20for%20the%20discarded%20half&url=https://usaipa.org">Share on X</a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org">Share on LinkedIn</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://usaipa.org">Share on Facebook</a>
+  </div>
+  <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.
+  Book by Rodger R Savory. Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+</div></footer>
+</body>
+</html>

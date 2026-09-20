@@ -1,130 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Register a Context | Independent Parties of America</title>
-<meta name="description" content="Register your community's holistic context at usaipa.org. Track policies, votes, and the public record. Lower levels must exist and agree before a higher level may register.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" href="favicon.png">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register a Context | The Independent Parties of America</title>
+<meta name="description" content="Register your community's holistic context on the public record. Higher levels require every lower level registered and in agreement - the hierarchy lock.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Independent Parties of America">
+<meta property="og:title" content="Register a Context | The Independent Parties of America">
+<meta property="og:description" content="Register your community's holistic context on the public record. Higher levels require every lower level registered and in agreement - the hierarchy lock.">
+<meta property="og:url" content="https://usaipa.org/register.html">
+<meta property="og:image" content="https://usaipa.org/images/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Register a Context | The Independent Parties of America">
+<meta name="twitter:description" content="Register your community's holistic context on the public record. Higher levels require every lower level registered and in agreement - the hierarchy lock.">
+<meta name="twitter:image" content="https://usaipa.org/images/hero.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://usaipa.org/register.html">
+
+<style>
+  :root{
+    --paper:#FCF8EF; --panel:#FFFDF6; --ink:#2B2622; --deep:#3F3527; --faint:#7A7166;
+    --rule:#B9AD9C; --rust:#9A3C22; --blue:#3E5C76; --gold:#C8A028;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif; line-height:1.65; font-size:17px;}
+  a{color:var(--rust);}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 22px;}
+  header.site{padding:26px 0 18px; border-bottom:2px solid var(--rule); background:var(--paper);}
+  .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
+  .brand img{width:52px; height:52px;}
+  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px; line-height:1.15;}
+  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase;}
+  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:4px 18px; font-size:15px;}
+  nav.main a{color:var(--deep); text-decoration:none; padding:6px 10px; border:1.6px solid transparent;}
+  nav.main a:hover{border:1.6px solid var(--rust);}
+  nav.main a.here{border:1.6px solid var(--rule);}
+  .sketch{position:relative;}
+  .sketch::before{content:""; position:absolute; inset:-4px; border:1.5px solid var(--rule);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; pointer-events:none; opacity:.65;}
+  .card{background:var(--panel); border:1.5px solid var(--rule);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:22px 24px; margin:22px 0;}
+  h1,h2,h3{color:var(--deep); font-weight:bold; line-height:1.2;}
+  h1{font-size:40px; margin:38px 0 8px;}
+  h2{font-size:26px; margin:30px 0 10px;}
+  h3{font-size:19px; margin:18px 0 6px;}
+  .sub{color:var(--rust); font-style:italic; font-size:19px; margin-bottom:16px;}
+  p{margin:0 0 14px;}
+  .btn{display:inline-block; padding:11px 22px; margin:6px 8px 6px 0; text-decoration:none; font-weight:bold;
+    color:var(--paper); background:var(--rust); border:1.5px solid var(--deep);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; box-shadow:2px 3px 0 rgba(63,53,39,.35);}
+  .btn.alt{background:var(--blue);}
+  .btn.ghost{background:transparent; color:var(--deep);}
+  .rule-line{border:none; border-top:2px solid var(--rule); margin:30px auto; width:120px;}
+  footer.site{margin-top:60px; padding:26px 0 40px; border-top:2px solid var(--rule);
+    color:var(--faint); font-size:14px;}
+  .share a{margin-right:14px; text-decoration:none;}
+  .stategrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px;}
+  .stategrid a{display:block; padding:7px 10px; text-decoration:none; color:var(--deep);
+    background:var(--panel); border:1.3px solid var(--rule);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; font-size:14.5px;}
+  .stategrid a:hover{border-color:var(--rust);}
+  table.src{width:100%; border-collapse:collapse; font-size:15px;}
+  table.src td, table.src th{border-bottom:1px solid var(--rule); padding:8px 6px; text-align:left; vertical-align:top;}
+  table.src a{word-break:break-all;}
+  .lvl{font-weight:bold;}
+  .ok{color:#3F6C3F;} .lock{color:var(--rust);}
+  .small{font-size:13.5px; color:var(--faint);}
+</style>
 </head>
 <body>
 <header class="site"><div class="wrap">
-<a class="logo" href="index.html"><img src="favicon.svg" alt="IPA pennants">Independent Parties of America</a>
-<nav>
- <a href="index.html">Home</a>
- <a href="book.html">Book and Sources</a>
- <a href="map.html">Map</a>
- <a href="register.html" class="active">Register a Context</a>
-</nav>
+  <a class="brand" href="/">
+    <img src="/favicon.svg" alt="IPA mark">
+    <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
+  </a>
+  <nav class="main">
+      <a href="/">Home</a>
+      <a href="/book.html">The Book</a>
+      <a href="/sources.html">Sources: Laws by State</a>
+      <a href="/map.html">Context Map</a>
+      <a href="/register.html" class="here">Register a Context</a>
+    </nav>
 </div></header>
+<main class="wrap">
 
-<section><div class="wrap">
- <h2>Register a community context</h2>
- <p class="center" style="max-width:700px;margin:0 auto 30px;color:var(--faint)">A context is a declaration of how people living in a community want their lives to be: social, economic, and environmental, near term and hundreds of years out. It is created by consensus, includes everyone with veto power, and contains no decisions, no prejudice, and nothing quantified. Higher levels require every lower level to exist and agree.</p>
-
- <div class="grid">
-  <div class="card" style="grid-column:1/-1">
-   <h3>New context</h3>
-   <form id="ctxForm">
-    <div class="field"><label for="place">Place name (town, county, or state)</label>
-      <input id="place" required placeholder="e.g. Okeechobee"></div>
-    <div class="field"><label for="level">Level</label>
-      <select id="level">
-        <option value="town">Town</option>
-        <option value="county">County</option>
-        <option value="state">State</option>
-        <option value="national">National</option>
-      </select></div>
-    <div class="field"><label for="text">The context (your community's own words)</label>
-      <textarea id="text" rows="6" required placeholder="We live in a town where..."></textarea></div>
-    <div class="field"><label for="signers">Signers (comma separated names)</label>
-      <input id="signers" required placeholder="Names of the people who wrote it"></div>
-    <button type="submit">Register context</button>
-    <div id="gateMsg"></div>
-   </form>
-  </div>
-
-  <div class="card" style="grid-column:1/-1">
-   <h3>Registered contexts</h3>
-   <div id="ctxList"><p style="color:var(--faint)">Nothing registered on this device yet.</p></div>
-  </div>
-
-  <div class="card" style="grid-column:1/-1">
-   <h3>Record a vote or policy</h3>
-   <p style="margin-bottom:14px;color:var(--faint)">Every vote is measured against the context and published here. Anyone can read it; that is the audit.</p>
-   <form id="voteForm">
-    <div class="field"><label for="vplace">Place</label><input id="vplace" required placeholder="Same place name as the context"></div>
-    <div class="field"><label for="vlevel">Level</label>
-      <select id="vlevel"><option value="town">Town</option><option value="county">County</option><option value="state">State</option><option value="national">National</option></select></div>
-    <div class="field"><label for="vpolicy">Policy or vote</label><input id="vpolicy" required placeholder="What was decided"></div>
-    <div class="field"><label for="vtest">Seven questions result</label>
-      <select id="vtest"><option>Passed all seven</option><option>Passed with fail-safe fired</option><option>Failed a question (voided)</option></select></div>
-    <button type="submit">Publish the record</button>
-   </form>
-   <div id="voteList" style="margin-top:18px"></div>
-  </div>
- </div>
-</div></section>
-
-<footer><div class="wrap">
-<p>Independent Parties of America &middot; usaipa.org</p>
-<p>Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.</p>
-</div></footer>
-<script src="app.js"></script>
+<h1>Register a Context</h1>
+<p class="sub">Put your community's word on the public record.</p>
+<div class="card sketch">
+<p><strong>The rule of levels.</strong> A context for a higher level can only be registered when
+<strong>every lower level under it</strong> has (a) a registered context and (b) recorded agreement
+to send elected representatives to the higher table. If even one lower level is missing or objects,
+the higher level stays locked. No exceptions.</p>
+<p class="small">Example: a state context requires all counties in that state registered and agreeing.
+A county context requires its cities and towns. A city or town context is the foundation - it needs
+only its own people.</p>
+</div>
+<h2>Start a registration</h2>
+<div class="card">
+<p><label for="lvl">Level you are registering</label></p>
+<p><select id="lvl" style="width:100%; padding:10px; font-size:16px; border:1.5px solid #B9AD9C; background:#FFFDF6; font-family:Georgia,serif;">
+<option value="">Choose one...</option>
+<option value="City or Town">City or Town (foundation level - always unlocked)</option>
+<option value="County">County (requires its cities and towns)</option>
+<option value="State">State (requires all its counties)</option>
+<option value="National">National (requires all 50 states)</option>
+</select></p>
+<p><label for="place">Place name</label><br>
+<input id="place" type="text" placeholder="e.g. Stuart / Martin County / Florida" style="width:100%; padding:10px; font-size:16px; border:1.5px solid #B9AD9C; background:#FFFDF6; font-family:Georgia,serif;"></p>
+<p><label for="parent">Parent place (the level above you)</label><br>
+<input id="parent" type="text" placeholder="e.g. Martin County, Florida" style="width:100%; padding:10px; font-size:16px; border:1.5px solid #B9AD9C; background:#FFFDF6; font-family:Georgia,serif;"></p>
+<p><label for="ctext">Your community context (how you want your lives to be - socially, economically, environmentally, near and far term)</label><br>
+<textarea id="ctext" rows="7" style="width:100%; padding:10px; font-size:15px; border:1.5px solid #B9AD9C; background:#FFFDF6; font-family:Georgia,serif;" placeholder="We live in a town where..."></textarea></p>
+<p><label for="sigs">Signatures gathered (people who took part in writing)</label><br>
+<input id="sigs" type="number" min="1" style="width:160px; padding:10px; font-size:16px; border:1.5px solid #B9AD9C; background:#FFFDF6; font-family:Georgia,serif;"></p>
+<p><label for="contact">Contact email (not published)</label><br>
+<input id="contact" type="email" style="width:100%; padding:10px; font-size:16px; border:1.5px solid #B9AD9C; background:#FFFDF6; font-family:Georgia,serif;"></p>
+<p><button id="submit" class="btn">Check the hierarchy and file</button></p>
+<div id="status" style="margin-top:12px;"></div>
+</div>
+<div class="card"><h3>How filings are reviewed</h3>
+<p class="small">A registration is a public act, not a database entry. Filings are submitted by email to
+the registry stewards and, once levels check out, appended to the public registry file on this site
+through an auditable pull request anyone can read. The hierarchy lock is checked by hand and by code
+before anything goes live. Nothing is auto-approved.</p>
+<p class="small">What you need before filing: a context written by consensus (no decisions, no rankings),
+a list of the people who wrote it, and for every level above a town, the registry links of each lower
+level under you showing registered status and recorded agreement.</p></div>
 <script>
-// chain presence check for gating
-function lowerLevels(level){
-  const all=["town","county","state","national"]; return all.slice(0, all.indexOf(level));
-}
-function gate(place, level){
-  const lows = lowerLevels(level);
-  const missing = lows.filter(l=>!findCtx(place,l).length);
-  const disagreed = lows.filter(l=>findCtx(place,l).length && !findCtx(place,l).every(c=>c.agreed));
-  return {ok: !missing.length && !disagreed.length, missing, disagreed};
-}
-function renderCtxs(){
-  const box = el("ctxList"); const cs = contexts();
-  if(!cs.length){ box.innerHTML = '<p style="color:var(--faint)">Nothing registered on this device yet.</p>'; return; }
-  box.innerHTML = cs.slice().reverse().map(c=>
-    '<div style="border-top:1px solid var(--rule);padding:12px 0">'+
-    '<strong>'+esc(c.place)+'</strong> <span class="status-chip '+(c.agreed?"agreed":"proposed")+'">'+(c.agreed?"agreed":"proposed")+'</span> <span class="pill">'+esc(c.level)+'</span>'+
-    '<div style="font-size:.85rem;color:var(--faint)">'+fmtDate(c.ts)+' &middot; signers: '+esc(c.signers)+'</div>'+
-    '<p style="margin-top:8px">'+esc(c.text)+'</p></div>').join("");
-}
-el("ctxForm").addEventListener("submit", e=>{
-  e.preventDefault();
-  const place=el("place").value.trim(), level=el("level").value;
-  const g=gate(place, level);
-  const msg=el("gateMsg");
-  if(!g.ok){
-    msg.innerHTML='<div class="msg err">Cannot register a '+esc(level)+' context for '+esc(place)+' yet. '+
-      (g.missing.length?("Missing lower level(s): "+g.missing.join(", ")+". "):"")+
-      (g.disagreed.length?("Not in agreement: "+g.disagreed.join(", ")+"."):"")+
-      " Every lower level must exist and agree first.</div>";
-    return;
+const LEVEL_ORDER = {"City or Town":0, "County":1, "State":2, "National":3};
+const PARENT_REQ = {"City or Town":null, "County":"City or Town", "State":"County", "National":"State"};
+document.getElementById("submit").addEventListener("click", ()=>{
+  const lvl = document.getElementById("lvl").value;
+  const place = document.getElementById("place").value.trim();
+  const parent = document.getElementById("parent").value.trim();
+  const text = document.getElementById("ctext").value.trim();
+  const sigs = document.getElementById("sigs").value;
+  const email = document.getElementById("contact").value.trim();
+  const st = document.getElementById("status");
+  if(!lvl || !place || !text || !sigs){ st.innerHTML = '<p class="lock">Fill in level, place, context text, and signatures.</p>'; return; }
+  let checks = [];
+  if(PARENT_REQ[lvl]){
+    checks.push('<span class="lock">LOCK CHECK:</span> a '+lvl+' context requires <strong>every '+PARENT_REQ[lvl]+' under '+place+'</strong> to be registered and in agreement. When you file, attach the registry links for each one, or the filing waits.');
+  } else {
+    checks.push('<span class="ok">FOUNDATION LEVEL:</span> '+place+' registers directly - no lower levels required.');
   }
-  msg.innerHTML="";
-  saveContext({place, level, text:el("text").value.trim(), signers:el("signers").value.trim(), agreed:false, ts:Date.now()});
-  e.target.reset(); renderCtxs();
+  const mailto = "mailto:registry@usaipa.org"
+    + "?subject=" + encodeURIComponent("IPA context registration: " + lvl + " - " + place)
+    + "&body=" + encodeURIComponent(
+        "LEVEL: " + lvl + "\nPLACE: " + place + "\nPARENT: " + parent +
+        "\nSIGNATURES: " + sigs + "\nCONTACT: " + email +
+        "\n\nCONTEXT:\n" + text +
+        (PARENT_REQ[lvl] ? "\n\nLOWER-LEVEL REGISTRY LINKS (required):\n[attach links]\nLOWER-LEVEL AGREEMENT RECORD:\n[attach record]" : ""))
+    ;
+  checks.push('<p style="margin-top:10px;"><a class="btn" href="'+mailto+'">Open the filing email (pre-filled)</a></p>');
+  st.innerHTML = checks.join("<br>");
 });
-el("voteForm").addEventListener("submit", e=>{
-  e.preventDefault();
-  const place=el("vplace").value.trim();
-  if(!findCtx(place, el("vlevel").value).length){
-    el("voteList").innerHTML='<div class="msg err">No registered context for that place and level. Register the context first; the record has to measure against something.</div>'; return;
-  }
-  saveVote({place, level:el("vlevel").value, policy:el("vpolicy").value, test:el("vtest").value, ts:Date.now()});
-  e.target.reset(); renderVotes();
-});
-function renderVotes(){
-  const vs=votes();
-  el("voteList").innerHTML = vs.length
-    ? '<table class="votes"><tr><th>Place</th><th>Level</th><th>Policy</th><th>Test</th><th>Date</th></tr>'+
-      vs.slice().reverse().map(v=>"<tr><td>"+esc(v.place)+"</td><td>"+esc(v.level)+"</td><td>"+esc(v.policy)+"</td><td>"+esc(v.test)+"</td><td>"+fmtDate(v.ts)+"</td></tr>").join("")+"</table>"
-    : '<p style="color:var(--faint)">No votes recorded on this device yet.</p>';
-}
-renderCtxs(); renderVotes();
 </script>
-</body></html>
+
+</main>
+<footer class="site"><div class="wrap">
+  <div class="share">
+    <a href="https://twitter.com/intent/tweet?text=The%20Independent%20Parties%20of%20America%20-%20a%20third%20foundation%20for%20the%20discarded%20half&url=https://usaipa.org">Share on X</a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org">Share on LinkedIn</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://usaipa.org">Share on Facebook</a>
+  </div>
+  <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.
+  Book by Rodger R Savory. Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+</div></footer>
+</body>
+</html>
