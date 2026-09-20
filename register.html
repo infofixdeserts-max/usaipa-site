@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register a Context | Independent Parties of America</title>
+<meta name="description" content="Register your community's holistic context at usaipa.org. Track policies, votes, and the public record. Lower levels must exist and agree before a higher level may register.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html"><img src="favicon.svg" alt="IPA pennants">Independent Parties of America</a>
+<nav>
+ <a href="index.html">Home</a>
+ <a href="book.html">Book and Sources</a>
+ <a href="map.html">Map</a>
+ <a href="register.html" class="active">Register a Context</a>
+</nav>
+</div></header>
+
+<section><div class="wrap">
+ <h2>Register a community context</h2>
+ <p class="center" style="max-width:700px;margin:0 auto 30px;color:var(--faint)">A context is a declaration of how people living in a community want their lives to be: social, economic, and environmental, near term and hundreds of years out. It is created by consensus, includes everyone with veto power, and contains no decisions, no prejudice, and nothing quantified. Higher levels require every lower level to exist and agree.</p>
+
+ <div class="grid">
+  <div class="card" style="grid-column:1/-1">
+   <h3>New context</h3>
+   <form id="ctxForm">
+    <div class="field"><label for="place">Place name (town, county, or state)</label>
+      <input id="place" required placeholder="e.g. Okeechobee"></div>
+    <div class="field"><label for="level">Level</label>
+      <select id="level">
+        <option value="town">Town</option>
+        <option value="county">County</option>
+        <option value="state">State</option>
+        <option value="national">National</option>
+      </select></div>
+    <div class="field"><label for="text">The context (your community's own words)</label>
+      <textarea id="text" rows="6" required placeholder="We live in a town where..."></textarea></div>
+    <div class="field"><label for="signers">Signers (comma separated names)</label>
+      <input id="signers" required placeholder="Names of the people who wrote it"></div>
+    <button type="submit">Register context</button>
+    <div id="gateMsg"></div>
+   </form>
+  </div>
+
+  <div class="card" style="grid-column:1/-1">
+   <h3>Registered contexts</h3>
+   <div id="ctxList"><p style="color:var(--faint)">Nothing registered on this device yet.</p></div>
+  </div>
+
+  <div class="card" style="grid-column:1/-1">
+   <h3>Record a vote or policy</h3>
+   <p style="margin-bottom:14px;color:var(--faint)">Every vote is measured against the context and published here. Anyone can read it; that is the audit.</p>
+   <form id="voteForm">
+    <div class="field"><label for="vplace">Place</label><input id="vplace" required placeholder="Same place name as the context"></div>
+    <div class="field"><label for="vlevel">Level</label>
+      <select id="vlevel"><option value="town">Town</option><option value="county">County</option><option value="state">State</option><option value="national">National</option></select></div>
+    <div class="field"><label for="vpolicy">Policy or vote</label><input id="vpolicy" required placeholder="What was decided"></div>
+    <div class="field"><label for="vtest">Seven questions result</label>
+      <select id="vtest"><option>Passed all seven</option><option>Passed with fail-safe fired</option><option>Failed a question (voided)</option></select></div>
+    <button type="submit">Publish the record</button>
+   </form>
+   <div id="voteList" style="margin-top:18px"></div>
+  </div>
+ </div>
+</div></section>
+
+<footer><div class="wrap">
+<p>Independent Parties of America &middot; usaipa.org</p>
+<p>Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.</p>
+</div></footer>
+<script src="app.js"></script>
+<script>
+// chain presence check for gating
+function lowerLevels(level){
+  const all=["town","county","state","national"]; return all.slice(0, all.indexOf(level));
+}
+function gate(place, level){
+  const lows = lowerLevels(level);
+  const missing = lows.filter(l=>!findCtx(place,l).length);
+  const disagreed = lows.filter(l=>findCtx(place,l).length && !findCtx(place,l).every(c=>c.agreed));
+  return {ok: !missing.length && !disagreed.length, missing, disagreed};
+}
+function renderCtxs(){
+  const box = el("ctxList"); const cs = contexts();
+  if(!cs.length){ box.innerHTML = '<p style="color:var(--faint)">Nothing registered on this device yet.</p>'; return; }
+  box.innerHTML = cs.slice().reverse().map(c=>
+    '<div style="border-top:1px solid var(--rule);padding:12px 0">'+
+    '<strong>'+esc(c.place)+'</strong> <span class="status-chip '+(c.agreed?"agreed":"proposed")+'">'+(c.agreed?"agreed":"proposed")+'</span> <span class="pill">'+esc(c.level)+'</span>'+
+    '<div style="font-size:.85rem;color:var(--faint)">'+fmtDate(c.ts)+' &middot; signers: '+esc(c.signers)+'</div>'+
+    '<p style="margin-top:8px">'+esc(c.text)+'</p></div>').join("");
+}
+el("ctxForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const place=el("place").value.trim(), level=el("level").value;
+  const g=gate(place, level);
+  const msg=el("gateMsg");
+  if(!g.ok){
+    msg.innerHTML='<div class="msg err">Cannot register a '+esc(level)+' context for '+esc(place)+' yet. '+
+      (g.missing.length?("Missing lower level(s): "+g.missing.join(", ")+". "):"")+
+      (g.disagreed.length?("Not in agreement: "+g.disagreed.join(", ")+"."):"")+
+      " Every lower level must exist and agree first.</div>";
+    return;
+  }
+  msg.innerHTML="";
+  saveContext({place, level, text:el("text").value.trim(), signers:el("signers").value.trim(), agreed:false, ts:Date.now()});
+  e.target.reset(); renderCtxs();
+});
+el("voteForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const place=el("vplace").value.trim();
+  if(!findCtx(place, el("vlevel").value).length){
+    el("voteList").innerHTML='<div class="msg err">No registered context for that place and level. Register the context first; the record has to measure against something.</div>'; return;
+  }
+  saveVote({place, level:el("vlevel").value, policy:el("vpolicy").value, test:el("vtest").value, ts:Date.now()});
+  e.target.reset(); renderVotes();
+});
+function renderVotes(){
+  const vs=votes();
+  el("voteList").innerHTML = vs.length
+    ? '<table class="votes"><tr><th>Place</th><th>Level</th><th>Policy</th><th>Test</th><th>Date</th></tr>'+
+      vs.slice().reverse().map(v=>"<tr><td>"+esc(v.place)+"</td><td>"+esc(v.level)+"</td><td>"+esc(v.policy)+"</td><td>"+esc(v.test)+"</td><td>"+fmtDate(v.ts)+"</td></tr>").join("")+"</table>"
+    : '<p style="color:var(--faint)">No votes recorded on this device yet.</p>';
+}
+renderCtxs(); renderVotes();
+</script>
+</body></html>

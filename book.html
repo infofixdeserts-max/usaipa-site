@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book and Sources | Independent Parties of America</title>
+<meta name="description" content="Read, download, or buy The Independent Parties of America. Full sources for every state election law in the fifty state field guide.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html"><img src="favicon.svg" alt="IPA pennants">Independent Parties of America</a>
+<nav>
+ <a href="index.html">Home</a>
+ <a href="book.html" class="active">Book and Sources</a>
+ <a href="map.html">Map</a>
+ <a href="register.html">Register a Context</a>
+</nav>
+</div></header>
+
+<section class="hero" style="padding:44px 0">
+ <div class="wrap" style="display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:left">
+  <img class="bookcover" src="cover_front.png" alt="Book cover: small town main street with pennant flags">
+  <div style="max-width:520px">
+   <h1 style="font-size:2rem">The Independent Parties of America</h1>
+   <p style="color:var(--deep);font-size:1.1rem;margin:8px 0 18px">A Third Foundation for the Discarded Half</p>
+   <p style="color:var(--faint);margin-bottom:20px">by Rodger R Savory. The whole proposal, the seven questions, the fail-safe clause, and a fifty state field guide to ballot access: how a new party gets on the ballot in every state, rule by rule, with sources.</p>
+   <a class="btn primary" href="The_Independent_Parties_of_America.pdf" download>Download the PDF (free)</a>
+   <a class="btn ghost" href="https://gumroad.com/l/mirtav" target="_blank" rel="noopener">Buy the digital edition</a>
+   <a class="btn ghost" href="#pod">Paperback (print on demand)</a>
+  </div>
+ </div>
+</section>
+
+<section><div class="wrap">
+ <h2>Print the paperback yourself</h2>
+ <div class="grid">
+  <div class="card"><h3>Print at home</h3><p>The book is built to fold: 20 sheets of letter paper, 4 pages per sheet. Fold each sheet, nest them in order, and you hold the whole book.</p></div>
+  <div class="card"><h3>Or use print on demand</h3><p>A professional paperback is being prepared for print on demand. When it is live, the order link appears here. No paid service is required to read or share the book.</p></div>
+  <div class="card"><h3>Share freely</h3><p>This book was written to be copied. Download it, print it, hand it to a neighbor. That is the entire point.</p></div>
+ </div>
+</section>
+
+<section style="background:#f4ecdb;border-top:1px solid var(--rule)">
+ <div class="wrap">
+  <h2>Sources: fifty states, law by law</h2>
+  <p class="center" style="max-width:720px;margin:0 auto 22px;color:var(--faint)">Every state entry below is drawn from public summaries of each state's election statutes, chiefly the compendium maintained by Ballotpedia, and from federal election rules. Election laws change: read your state's entry, then verify it with the links inside.</p>
+  <div class="grid" id="statesGrid"></div>
+ </div>
+</section>
+
+<footer><div class="wrap">
+<p>Independent Parties of America &middot; usaipa.org</p>
+<p>Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.</p>
+</div></footer>
+<script>
+fetch("data_states.json").then(r=>r.json()).then(d=>{
+  const g=document.getElementById("statesGrid");
+  Object.entries(d.states).forEach(([name,txt])=>{
+    const links=[...txt.matchAll(/https?:\/\/[^\s;)]+/g)].map(m=>m[0].replace(/[).,]+$/,""));
+    const uniq=[...new Set(links)].slice(0,4);
+    const card=document.createElement("div"); card.className="card";
+    card.innerHTML="<h3>"+name+"</h3><p>"+txt.split("Sources:")[0].slice(0,220)+"...</p>"+
+      uniq.map(u=>'<div class="src"><a href="'+u+'" target="_blank" rel="noopener">'+u.replace(/^https?:\/\//,"")+"</a></div>").join("");
+    g.appendChild(card);
+  });
+});
+</script>
+</body></html>

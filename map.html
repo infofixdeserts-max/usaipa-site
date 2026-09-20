@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map | Independent Parties of America</title>
+<meta name="description" content="Search any town, county, state, or the federal level. See which community contexts exist, which agree, and where the chain is missing a link.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html"><img src="favicon.svg" alt="IPA pennants">Independent Parties of America</a>
+<nav>
+ <a href="index.html">Home</a>
+ <a href="book.html">Book and Sources</a>
+ <a href="map.html" class="active">Map</a>
+ <a href="register.html">Register a Context</a>
+</nav>
+</div></header>
+
+<section><div class="wrap">
+ <h2>The map of contexts</h2>
+ <p class="center" style="max-width:700px;margin:0 auto 26px;color:var(--faint)">Search for any place: a town, a county, a state, or the federal level. You will see the full chain from town to nation: which levels have a registered context, which have agreed, and which are missing. A higher level cannot exist unless every lower level exists and agrees.</p>
+ <div id="mapsearch"><input id="q" type="search" placeholder="Search a town, county, or state..." style="font-size:1.1rem;padding:13px"></div>
+ <div class="leveltabs" id="tabs">
+  <button data-lvl="all" class="active">All levels</button>
+  <button data-lvl="town">Town</button>
+  <button data-lvl="county">County</button>
+  <button data-lvl="state">State</button>
+  <button data-lvl="national">National</button>
+ </div>
+ <div id="results"></div>
+</div></section>
+
+<footer><div class="wrap">
+<p>Independent Parties of America &middot; usaipa.org</p>
+<p>Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.</p>
+</div></footer>
+<script src="app.js"></script>
+<script>
+let LEVEL="all";
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); LEVEL=b.dataset.lvl; render();
+});
+function placeChain(place){
+  // Simulated chain: town < county < state < national. National context exists (the book itself).
+  // For the demo, county+town presence depends on registered contexts at this site.
+  const ctxs = contexts();
+  const has = (lvl) => ctxs.some(c=>c.place.toLowerCase()===place.toLowerCase() && c.level===lvl);
+  const agreed = (lvl) => { const cs=ctxs.filter(c=>c.place.toLowerCase()===place.toLowerCase()&&c.level===lvl); return has(lvl)&&ctxs.filter(c=>c.place.toLowerCase()===place.toLowerCase()&&c.level===lvl).every(c=>c.agreed); };
+  return [
+    {level:"town",   exists: has("town"),   agreed: agreed("town")},
+    {level:"county", exists: has("county"), agreed: agreed("county")},
+    {level:"state",  exists: has("state"),  agreed: agreed("state")},
+    {level:"national", exists: true, agreed: true}
+  ];
+}
+function render(){
+  const q = el("q").value.trim();
+  const R = el("results");
+  if(!q){ R.innerHTML = '<p class="center" style="color:var(--faint)">Type a place to see its context chain.</p>'; return; }
+  const chain = placeChain(q).filter(c=>LEVEL==="all"||c.level===LEVEL);
+  const gate = gateCheck(placeChain(q));
+  let html = '<div class="card"><h3>'+esc(q)+'</h3>';
+  html += '<div class="chain">'+chain.map(c=>{
+    const cls = c.exists ? (c.agreed?"ok":"") : "missing";
+    const lbl = c.level.charAt(0).toUpperCase()+c.level.slice(1);
+    const st  = !c.exists ? "no context yet" : (c.agreed ? "context agreed" : "context registered, not yet agreed");
+    return '<span class="lvl '+cls+'">'+lbl+': '+st+'</span>';
+  }).join("")+'</div>';
+  html += '<p style="margin-top:12px">'+(gate.ok
+    ? "All lower levels exist and agree. A higher level context may be written for this place."
+    : "Higher level locked: "+[...gate.missing,...gate.disagreed].map(l=>l.level+" is "+(gate.missing.includes(l)?"missing":"not in agreement")).join("; ")+".")+'</p>';
+  const here = contexts().filter(c=>c.place.toLowerCase()===q.toLowerCase());
+  if(here.length){
+    html += '<table class="votes" style="margin-top:14px"><tr><th>Level</th><th>Registered</th><th>Status</th></tr>';
+    here.forEach(c=>{ html += "<tr><td>"+esc(c.level)+"</td><td>"+fmtDate(c.ts)+"</td><td><span class='status-chip "+(c.agreed?"agreed":"proposed")+"'>"+(c.agreed?"agreed":"proposed")+"</span></td></tr>"; });
+    html += "</table>";
+  } else {
+    html += '<p style="margin-top:12px"><a href="register.html">Register the first context for '+esc(q)+'</a></p>';
+  }
+  html += "</div>";
+  R.innerHTML = html;
+}
+el("q").addEventListener("input", render);
+render();
+</script>
+</body></html>
