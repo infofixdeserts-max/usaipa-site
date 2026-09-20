@@ -1,0 +1,32 @@
+[
+ {
+  "data": "ns63.domaincontrol.com",
+  "name": "@",
+  "ttl": 3600,
+  "type": "NS"
+ },
+ {
+  "data": "ns64.domaincontrol.com",
+  "name": "@",
+  "ttl": 3600,
+  "type": "NS"
+ },
+ {
+  "data": "@",
+  "name": "www",
+  "ttl": 3600,
+  "type": "CNAME"
+ },
+ {
+  "data": "_domainconnect.gd.domaincontrol.com",
+  "name": "_domainconnect",
+  "ttl": 3600,
+  "type": "CNAME"
+ },
+ {
+  "data": "v=DMARC1; p=quarantine; adkim=r; aspf=r; rua=mailto:dmarc_rua@onsecureserver.net;",
+  "name": "_dmarc",
+  "ttl": 3600,
+  "type": "TXT"
+ }
+]

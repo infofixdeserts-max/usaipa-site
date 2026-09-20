@@ -95,7 +95,8 @@ nation, state, county, city or town, and neighborhood. Search below to see which
 at each level, what they say, and whether the next level up is unlocked.</p>
 <div class="card sketch">
 <h3>Search the registry</h3>
-<input id="q" type="search" placeholder="Type a state, county, city, or town - e.g. Florida, Stuart, Martin County" style="width:100%; padding:10px 12px; font-size:16px; border:1.5px solid #B9AD9C; border-radius:12px; background:#FFFDF6; font-family:Georgia,serif;">
+<input id="q" type="search" placeholder="Ask in plain words: counties in Florida, towns that agreed, show everything" style="width:100%; padding:10px 12px; font-size:16px; border:1.5px solid #B9AD9C; border-radius:12px; background:#FFFDF6; font-family:Georgia,serif;">
+<div class="gf-grid" id="mapstats"></div>
 <div id="results" style="margin-top:14px;"></div>
 </div>
 <div class="card"><h3>How the levels connect</h3>
@@ -108,24 +109,83 @@ locks the higher one. This is by design: power flows upward as language, not as 
 <li><strong>County context</strong> - requires the city/town contexts inside it</li>
 <li><strong>City or town context</strong> - the foundation; requires only its own people</li>
 </ul></div>
+<script src="/registry-app.js"></script>
 <script>
-const REGISTRY_URL = "https://usaipa.org/registry/contexts.json";
-let REG = null;
-async function load(){ try { const r = await fetch(REGISTRY_URL); REG = await r.json(); } catch(e){ REG = {contexts:[]}; } render(); }
-function render(){
-  const q = (document.getElementById("q").value||"").trim().toLowerCase();
-  const box = document.getElementById("results");
-  if(!REG || !REG.contexts.length){ box.innerHTML = '<p class="small">No contexts registered yet. Yours could be the first: <a href="/register.html">register a context</a>.</p>'; return; }
-  const hits = REG.contexts.filter(c => !q || (c.level+" "+c.place+" "+c.state+" "+c.title).toLowerCase().includes(q));
-  box.innerHTML = hits.length ? hits.map(c =>
-    '<div class="card" style="margin:10px 0;"><span class="lvl" style="color:var(--rust)">'+c.level+'</span> - <strong>'+c.title+'</strong>'+
-    '<br><span class="small">'+[c.place,c.state].filter(Boolean).join(", ")+
-    ' | registered '+c.date+' | '+c.signatures+' signatures | status: '+c.status+'</span>'+
-    (c.text ? '<br><p style="margin-top:8px;">'+c.text.slice(0,240)+'...</p>' : '')+'</div>').join("")
-    : '<p class="small">Nothing matches "'+q+'" yet.</p>';
+const REGISTRY_URL = "/registry/contexts.json";
+let REG = {contexts:[]};
+async function loadReg(){
+  try { const r = await fetch(REGISTRY_URL); REG = await r.json(); } catch(e){ REG = {contexts:[]}; }
+  render();
 }
-document.getElementById("q").addEventListener("input", ()=>REG&&render());
-load();
+function parseQuery(q){
+  q = q.toLowerCase().trim();
+  const out = {levels:[], words:[], agreedOnly:false, missingOnly:false};
+  if(/\btowns?\b|\bcit(y|ies)\b/.test(q)) out.levels.push("City or Town");
+  if(/\bcount(y|ies)\b/.test(q)) out.levels.push("County");
+  if(/\bstate(s)?\b/.test(q)) out.levels.push("State");
+  if(/\bnational|nation|country\b/.test(q)) out.levels.push("National");
+  if(/\bagree|agreed|on board\b/.test(q)) out.agreedOnly = true;
+  if(/\bmissing|locked|not yet\b/.test(q)) out.missingOnly = true;
+  out.words = q.replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(w=>w && ![
+    "counties","county","towns","town","city","cities","states","state","national","in","near",
+    "from","the","a","of","registered","agreed","missing","locked","show","all","context",
+    "contexts","level","that","which","who","have","has","with","and","or","me","my","find","list"
+  ].includes(w));
+  return out;
+}
+function allContexts(){
+  const pub = (REG.contexts||[]).map(c=>({
+    level:c.level||"", place:c.place||c.title||"", state:c.state||"", title:c.title||(c.place+" "+c.level),
+    text:c.text||"", date:c.date||"", signatures:c.signatures||0, status:c.status||""
+  }));
+  const loc = loadRegistry().map(c=>({
+    level:c.level, place:c.place, state:(c.parent||""), title:c.place+" "+c.level+" context",
+    text:c.text||"", date:fmtDate(c.on||Date.now()), signatures:c.sigs||0,
+    status:c.agreed?"agreed up":"registered, holding"
+  }));
+  return pub.concat(loc);
+}
+function render(){
+  const q = (document.getElementById("q").value||"").trim();
+  const ql = q.toLowerCase();
+  const box = document.getElementById("results");
+  const all = (REG.contexts||[]).concat(loadRegistry().map(c=>({
+    level:c.level, place:c.place, state:(c.parent||""), title:c.place+" "+c.level+" context",
+    text:c.text||"", date:fmtDate(c.on||Date.now()), signatures:c.sigs||0,
+    status:c.agreed?"agreed up":"registered, holding"
+  })));
+  document.getElementById("mapstats").innerHTML =
+    statPanel("Total contexts", all.length) +
+    statPanel("Towns", all.filter(c=>c.level==="City or Town").length) +
+    statPanel("Counties", all.filter(c=>c.level==="County").length, "#3E5C76") +
+    statPanel("States", all.filter(c=>c.level==="State").length, "#C8A028") +
+    statPanel("National", all.filter(c=>c.level==="National").length, "#4C7A4C");
+  if(!all.length){
+    box.innerHTML = '<p class="small">No contexts registered yet. Yours could be the first: <a href="/register.html">register a context</a>.</p>';
+    return;
+  }
+  const p = parseQuery(ql);
+  let hits = all.filter(c=>{
+    if(p.levels.length && !p.levels.includes(c.level)) return false;
+    if(p.missingOnly && /agreed/i.test(c.status||"")) return false;
+    if(p.agreedOnly && !/agreed/i.test(c.status||"")) return false;
+    const hay = (c.level+" "+c.place+" "+c.state+" "+(c.title||"")+" "+(c.text||"")).toLowerCase();
+    if(ql && hay.includes(ql)) return true;
+    if(p.words.length){
+      const generic = p.words.every(w=>["everything","anything","all","any","each","context","contexts","level","levels","place","places"].includes(w));
+      return generic ? true : p.words.every(t=>hay.includes(t));
+    }
+    return true;
+  });
+  box.innerHTML = hits.length ? hits.map(c =>
+    '<div class="card" style="margin:10px 0;"><span class="lvl" style="color:var(--rust)">'+esc(c.level)+'</span> - <strong>'+esc(c.title)+'</strong>'+
+    '<br><span class="small">'+esc([c.place,c.state].filter(Boolean).join(", "))+
+    ' | registered '+esc(c.date||"")+' | '+esc(String(c.signatures||0))+' signatures | status: '+esc(c.status||"")+'</span>'+
+    (c.text ? '<br><p style="margin-top:8px;">'+esc(String(c.text).slice(0,240))+'...</p>' : '')+'</div>').join("")
+    : '<p class="small">Nothing matches "'+esc(q)+'" yet. Try plain words: "counties in Florida", "towns that agreed", or just a place name.</p>';
+}
+document.getElementById("q").addEventListener("input", render);
+loadReg = loadReg; loadReg();
 </script>
 
 </main>

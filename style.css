@@ -58,3 +58,16 @@ table.votes{width:100%;border-collapse:collapse;font-size:.9rem}
 table.votes th,table.votes td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left}
 table.votes th{font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
 @media(max-width:640px){.hero h1{font-size:1.8rem}nav a{margin-left:10px;font-size:.85rem}}
+
+
+/* ---- grafyfy (Grafana-style) panels ---- */
+.gf-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:16px 0;}
+.gf-panel{background:#FFFDF6; border:1.5px solid #B9AD9C; border-radius:12px; padding:14px 16px; box-shadow:0 1px 0 #B9AD9C;}
+.gf-label{font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:#7A7166;}
+.gf-value{font-size:34px; font-weight:bold; line-height:1.15;}
+.gf-gauge{position:relative; width:100%; padding-top:50%; border-radius:50%; background:conic-gradient(#9A3C22 var(--p,0%), #F0E8D6 0); margin:8px auto; max-width:150px;}
+.gf-gauge::after{content:attr(data-v); position:absolute; inset:22%; background:#FFFDF6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#2B2622; font-size:22px;}
+.tag{display:inline-block; font-size:12px; padding:2px 10px; border:1.4px solid #B9AD9C; border-radius:99px; color:#7A7166; margin-left:8px;}
+.tag.ok{border-color:#4C7A4C; color:#4C7A4C;}
+.btn.secondary{background:#3E5C76;}
+.btn.secondary:hover{background:#2E4658;}
