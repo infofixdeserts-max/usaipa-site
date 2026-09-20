@@ -20,7 +20,7 @@ function findCtx(level, place){
 }
 
 /* gate: higher level allowed only when every lower level under it is registered AND agreeing */
-function gateCheck(lvl, place, parent){
+function gateCheck(lvl, place, parent, lowerTotal){
   const rank = LEVEL_RANK[lvl];
   if(rank===0) return {ok:true, missing:[], disagreed:[], need:null};
   const lowerLvl = lowerLevelOf(lvl);
@@ -29,22 +29,23 @@ function gateCheck(lvl, place, parent){
   // counties under the state). National is special: needs all 50 states agreed.
   let lowers = lvl==="National" ? reg.filter(c=>c.level===lowerLvl)
       : reg.filter(c => c.level===lowerLvl && (c.parent||"").toLowerCase()===String(place||"").toLowerCase());
+  // every lower level must be present: the higher context declares how many lower units it has
+  const needCount = lvl==="National" ? 50 : (Number(lowerTotal)||lowers.length);
   if(lvl==="National"){
     const states = reg.filter(c=>c.level==="State");
     if(states.length<50) return {ok:false, missing:[(50-states.length)+" state contexts not yet registered"], disagreed:[], need:"State"};
-    const disagreeing = states.filter(c=>!c.agreed);
-    if(disagreeing.length) return {ok:false, missing:[], disagreed:disagreeing.map(c=>c.place), need:"State"};
-    return {ok:true, missing:[], disagreed:[], need:"State"};
   }
   if(lowers.length===0)
     return {ok:false, missing:["no registered "+lowerLvl+" under "+(parent||place)], disagreed:[], need:lowerLvl};
+  if(lowers.length < needCount)
+    return {ok:false, missing:[(needCount-lowers.length)+" more "+lowerLvl.toLowerCase()+" context(s) required under "+place+" ("+lowers.length+" of "+needCount+" registered)"], disagreed:[], need:lowerLvl};
   const bad = lowers.filter(c=>!c.agreed);
   if(bad.length) return {ok:false, missing:[], disagreed:bad.map(c=>c.place), need:lowerLvl};
   return {ok:true, missing:[], disagreed:[], need:lowerLvl};
 }
 
-function submitContext(lvl, place, parent, text, sigs, email){
-  const g = gateCheck(lvl, place, parent);
+function submitContext(lvl, place, parent, text, sigs, email, lowerTotal){
+  const g = gateCheck(lvl, place, parent, lowerTotal);
   if(!g.ok){
     const why = g.missing.length
       ? "LOCKED. Missing lower level: " + g.missing.join("; ")
@@ -53,7 +54,8 @@ function submitContext(lvl, place, parent, text, sigs, email){
   }
   const reg = loadRegistry();
   reg.push({level:lvl, place:place, parent:parent, text:text, sigs:Number(sigs)||0,
-            email:email, on:Date.now(), agreed:rank0(lvl), votes:[]});
+            email:email, on:Date.now(), agreed:rank0(lvl), votes:[],
+            lowerTotal: LEVEL_RANK[lvl]>0 ? (Number(lowerTotal)||0) : 0});
   saveRegistry(reg);
   return {ok:true, msg:"Registered: " + place + " (" + lvl + ")."};
 }

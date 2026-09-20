@@ -108,6 +108,8 @@ only its own people.</p>
 <input id="parent" type="text" placeholder="e.g. Martin County, Florida" style="width:100%;"></p>
 <p><label for="ctext">Your community context (how you want your lives to be: socially, economically, environmentally, near and far term)</label><br>
 <textarea id="ctext" rows="7" style="width:100%;" placeholder="We live in a town where..."></textarea></p>
+<p><label for="ltotal">How many lower-level places are under you? (counties in your state, towns in your county; leave 0 if none)</label><br>
+<input id="ltotal" type="number" min="0" value="0" style="width:170px;"></p>
 <p><label for="sigs">Signatures gathered (people who took part in writing)</label><br>
 <input id="sigs" type="number" min="1" style="width:170px;"></p>
 <p><label for="contact">Contact email (not published)</label><br>
@@ -196,7 +198,8 @@ document.getElementById("submit").addEventListener("click", ()=>{
   const email = document.getElementById("contact").value.trim();
   const st = document.getElementById("status");
   if(!lvl || !place || !text || !sigs){ st.innerHTML = '<p class="lock">Fill in level, place, context text, and signatures.</p>'; return; }
-  const r = submitContext(lvl, place, parent, text, sigs, email);
+  const ltotal = document.getElementById("ltotal").value;
+  const r = submitContext(lvl, place, parent, text, sigs, email, ltotal);
   let html = r.ok ? '<p class="ok">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
   if(r.ok){
     const mailto = "mailto:registry@usaipa.org"
