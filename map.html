@@ -83,6 +83,7 @@
       <a href="/book.html">The Book</a>
       <a href="/sources.html">Sources: Laws by State</a>
       <a href="/map.html" class="here">Context Map</a>
+      <a href="/order.html">Order</a>
       <a href="/register.html">Register a Context</a>
     </nav>
 </div></header>
@@ -95,7 +96,8 @@ nation, state, county, city or town, and neighborhood. Search below to see which
 at each level, what they say, and whether the next level up is unlocked.</p>
 <div class="card sketch">
 <h3>Search the registry</h3>
-<input id="q" type="search" placeholder="Ask in plain words: counties in Florida, towns that agreed, show everything" style="width:100%; padding:10px 12px; font-size:16px; border:1.5px solid #B9AD9C; border-radius:12px; background:#FFFDF6; font-family:Georgia,serif;">
+<input id="q" type="search" list="placehints" autocomplete="off" placeholder="Ask in plain words: counties in Florida, towns that agreed, show everything" style="width:100%; padding:10px 12px; font-size:16px; border:1.5px solid #B9AD9C; border-radius:12px; background:#FFFDF6; font-family:Georgia,serif;">
+<datalist id="placehints"><option value="counties in Florida"><option value="towns that agreed"><option value="show everything"><option value="locked or missing"><option value="Stuart"><option value="Martin County"></datalist>
 <div class="gf-grid" id="mapstats"></div>
 <div id="results" style="margin-top:14px;"></div>
 </div>
@@ -171,9 +173,12 @@ function render(){
     if(p.agreedOnly && !/agreed/i.test(c.status||"")) return false;
     const hay = (c.level+" "+c.place+" "+c.state+" "+(c.title||"")+" "+(c.text||"")).toLowerCase();
     if(ql && hay.includes(ql)) return true;
+    // fuzzy: every significant word appears somewhere (substring), partial words ok
     if(p.words.length){
       const generic = p.words.every(w=>["everything","anything","all","any","each","context","contexts","level","levels","place","places"].includes(w));
-      return generic ? true : p.words.every(t=>hay.includes(t));
+      if(generic) return true;
+      const score = p.words.reduce((n,t)=> n + (hay.includes(t) ? 1 : (hay.includes(t.slice(0, Math.max(3, t.length-2))) ? 0.5 : 0)), 0);
+      return score >= Math.min(p.words.length, 1);
     }
     return true;
   });

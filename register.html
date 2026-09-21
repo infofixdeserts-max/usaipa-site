@@ -92,6 +92,13 @@ A county context requires its cities and towns. A city or town context is the fo
 only its own people.</p>
 </div>
 
+<div class="card" style="border-color:#9A3C22;">
+<h3>Register your place on the public record</h3>
+<p class="small" style="margin-bottom:12px;">Registration carries a $1 filing fee. It covers steward review and the public record entry. The button opens the payment page in a new tab - this page stays open while you pay.</p>
+<p><a class="btn" href="/order.html?product=register" target="_blank" rel="noopener">Pay the $1 registration fee (opens a new page)</a></p>
+<p class="small" id="paidRef" style="margin-top:8px;">After paying, your receipt email contains a reference code. Enter it below to unlock filing.</p>
+<p><input id="payref" type="text" placeholder="Reference code from your receipt (e.g. IPA-XXXXXX)" style="width:min(420px,100%);"></p>
+</div>
 <h2>Start a registration</h2>
 <div class="card">
 <p><label for="lvl">Level you are registering</label></p>
@@ -234,6 +241,10 @@ document.getElementById("vote").addEventListener("click", ()=>{
   renderStats(); renderRegistry();
 });
 renderStats(); renderRegistry();
+(function(){
+  const p = new URLSearchParams(location.search).get("paid");
+  if(p) document.getElementById("payref").value = p;
+})();
 </script>
 
 </main>
