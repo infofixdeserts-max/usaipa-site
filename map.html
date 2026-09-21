@@ -3,114 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Context Map | The Independent Parties of America</title>
-<meta name="description" content="Search registered community holistic contexts by nation, state, county, city, or town. See which levels exist and which are unlocked.">
+<title>The Context Map | The Independent Parties of America</title>
+<meta name="description" content="Search the public registry of community holistic contexts. Find which cities, counties, states, and national levels are registered, what they say, and which levels are unlocked.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Independent Parties of America">
-<meta property="og:title" content="Context Map | The Independent Parties of America">
-<meta property="og:description" content="Search registered community holistic contexts by nation, state, county, city, or town. See which levels exist and which are unlocked.">
+<meta property="og:title" content="The Context Map | The Independent Parties of America">
+<meta property="og:description" content="Search the public registry of community holistic contexts by place and level.">
 <meta property="og:url" content="https://usaipa.org/map.html">
-<meta property="og:image" content="https://usaipa.org/images/hero.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Context Map | The Independent Parties of America">
-<meta name="twitter:description" content="Search registered community holistic contexts by nation, state, county, city, or town. See which levels exist and which are unlocked.">
-<meta name="twitter:image" content="https://usaipa.org/images/hero.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://usaipa.org/map.html">
-
 <style>
   :root{
     --paper:#FCF8EF; --panel:#FFFDF6; --ink:#2B2622; --deep:#3F3527; --faint:#7A7166;
-    --rule:#B9AD9C; --rust:#9A3C22; --blue:#3E5C76; --gold:#C8A028;
+    --rule:#B9AD9C; --rust:#9A3C22; --blue:#3E5C76; --gold:#C8A028; --green:#4C7A4C;
+    --panel2:#F6EEDD;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  body{background:var(--paper); color:var(--ink);
-    font-family:Georgia,'Times New Roman',serif; line-height:1.65; font-size:17px;}
+  body{background:var(--paper); color:var(--ink); font-family:Georgia,'Times New Roman',serif; line-height:1.65; font-size:17px;}
   a{color:var(--rust);}
-  .wrap{max-width:1060px; margin:0 auto; padding:0 22px;}
-  header.site{padding:26px 0 18px; border-bottom:2px solid var(--rule); background:var(--paper);}
+  .wrap{max-width:1150px; margin:0 auto; padding:0 24px;}
+  header.site{padding:24px 0 18px; border-bottom:2px solid var(--rule); background:linear-gradient(180deg,#FDF9F0 0%,#F6EEDD 100%);}
   .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
   .brand img{width:52px; height:52px;}
-  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px; line-height:1.15;}
-  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase;}
-  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:4px 18px; font-size:15px;}
-  nav.main a{color:var(--deep); text-decoration:none; padding:6px 10px; border:1.6px solid transparent;}
-  nav.main a:hover{border:1.6px solid var(--rust);}
-  nav.main a.here{border:1.6px solid var(--rule);}
-  .sketch{position:relative;}
-  .sketch::before{content:""; position:absolute; inset:-4px; border:1.5px solid var(--rule);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; pointer-events:none; opacity:.65;}
-  .card{background:var(--panel); border:1.5px solid var(--rule);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:22px 24px; margin:22px 0;}
-  h1,h2,h3{color:var(--deep); font-weight:bold; line-height:1.2;}
-  h1{font-size:40px; margin:38px 0 8px;}
-  h2{font-size:26px; margin:30px 0 10px;}
-  h3{font-size:19px; margin:18px 0 6px;}
-  .sub{color:var(--rust); font-style:italic; font-size:19px; margin-bottom:16px;}
-  p{margin:0 0 14px;}
-  .btn{display:inline-block; padding:11px 22px; margin:6px 8px 6px 0; text-decoration:none; font-weight:bold;
-    color:var(--paper); background:var(--rust); border:1.5px solid var(--deep);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; box-shadow:2px 3px 0 rgba(63,53,39,.35);}
-  .btn.alt{background:var(--blue);}
-  .btn.ghost{background:transparent; color:var(--deep);}
-  .rule-line{border:none; border-top:2px solid var(--rule); margin:30px auto; width:120px;}
-  footer.site{margin-top:60px; padding:26px 0 40px; border-top:2px solid var(--rule);
-    color:var(--faint); font-size:14px;}
-  .share a{margin-right:14px; text-decoration:none;}
-  .stategrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px;}
-  .stategrid a{display:block; padding:7px 10px; text-decoration:none; color:var(--deep);
-    background:var(--panel); border:1.3px solid var(--rule);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; font-size:14.5px;}
-  .stategrid a:hover{border-color:var(--rust);}
-  table.src{width:100%; border-collapse:collapse; font-size:15px;}
-  table.src td, table.src th{border-bottom:1px solid var(--rule); padding:8px 6px; text-align:left; vertical-align:top;}
-  table.src a{word-break:break-all;}
-  .lvl{font-weight:bold;}
-  .ok{color:#3F6C3F;} .lock{color:var(--rust);}
-  .small{font-size:13.5px; color:var(--faint);}
+  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px;}
+  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.6px; text-transform:uppercase;}
+  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:6px 16px; font-size:15px;}
+  nav.main a{color:var(--deep); text-decoration:none; padding:7px 13px; border:1.6px solid transparent; border-radius:9px;}
+  nav.main a:hover{border-color:var(--rust);}
+  nav.main a.here{border-color:var(--rule); background:#FFFDF6;}
+
+  .hero{margin:30px 0 6px;}
+  .hero h1{color:var(--deep); font-size:34px; letter-spacing:.2px;}
+  .hero .lede{color:var(--rust); font-size:18.5px; margin:4px 0 6px;}
+  .hero p.why{color:var(--faint); max-width:860px;}
+
+  .gf-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(172px,1fr)); gap:14px; margin:20px 0;}
+  .gf-panel{background:linear-gradient(180deg,#FFFDF6 0%,#F9F1E0 100%); border:1.5px solid var(--rule);
+    border-radius:14px; padding:18px 20px; box-shadow:0 2px 0 rgba(185,173,156,.55), 0 8px 20px rgba(63,53,39,.06);}
+  .gf-label{font-size:11.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--faint); font-family:'Segoe UI',Arial,sans-serif;}
+  .gf-value{font-size:38px; font-weight:bold; line-height:1.1; margin-top:6px;}
+  .gf-panel.dim .gf-value{color:var(--faint);}
+
+  .card{background:var(--panel); border:1.5px solid var(--rule); border-radius:16px; padding:26px 28px; margin:20px 0;
+        box-shadow:0 8px 22px rgba(63,53,39,.05);}
+  h2{color:var(--deep); font-size:22px; margin:26px 0 8px;}
+  h3{color:var(--deep); font-size:17.5px; margin:0 0 10px;}
+  .small{font-size:14px; color:var(--faint);}
+  .sub{color:var(--faint); font-size:16px;}
+
+  .searchbar{display:flex; gap:10px; margin-top:6px;}
+  .searchbar input{flex:1;}
+  input,select,textarea{font-family:Georgia,serif; font-size:16px; padding:12px 14px; border:1.5px solid var(--rule);
+    border-radius:10px; background:#FFFDF6; color:var(--ink);}
+  input:focus,select:focus,textarea:focus{outline:2px solid rgba(154,60,34,.35); border-color:var(--rust);}
+  .btn{display:inline-block; background:var(--rust); color:#FCF8EF; text-decoration:none; border:none;
+       font-family:Georgia,serif; font-size:16.5px; padding:12px 26px; border-radius:11px; cursor:pointer;}
+  .btn:hover{background:#7F2F19;}
+  .btn.ghost{background:transparent; color:var(--deep); border:1.6px solid var(--rule);}
+  .hintrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+  .hintrow button{background:#F6EEDD; border:1.4px solid var(--rule); color:var(--deep); border-radius:99px;
+    padding:5px 14px; font-size:13.5px; cursor:pointer; font-family:Georgia,serif;}
+  .hintrow .hint:hover{border-color:var(--rust); color:var(--rust);}
+
+  .result{background:#FFFDF6; border:1.5px solid var(--rule); border-radius:13px; padding:16px 20px; margin:12px 0;}
+  .lvl{display:inline-block; font-size:12px; letter-spacing:1px; text-transform:uppercase; font-family:'Segoe UI',Arial,sans-serif;
+       color:#FCF8EF; background:var(--blue); border-radius:7px; padding:3px 10px; margin-right:8px;}
+  .lvl.town{background:#4C7A4C;} .lvl.county{background:var(--blue);} .lvl.state{background:var(--gold); color:#2B2622;}
+  .lvl.national{background:var(--rust);}
+  .status{font-size:13px; border-radius:99px; padding:3px 12px; border:1.4px solid var(--rule); color:var(--faint); margin-left:6px;}
+  .status.ok{border-color:var(--green); color:var(--green);}
+  .status.lock{border-color:#7F2F19; color:#7F2F19;}
+
+  .steps li{list-style:none; counter-increment:s; padding:9px 0 9px 42px; position:relative; border-bottom:1px dashed #D8CDBB; font-size:15.5px;}
+  .steps{counter-reset:s;}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:9px; width:29px; height:29px; border-radius:50%;
+    background:var(--rust); color:#FCF8EF; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:14px;}
+
+  footer.site{margin-top:44px; padding:24px 0 32px; border-top:2px solid var(--rule); color:var(--faint); font-size:14px;}
 </style>
 </head>
 <body>
 <header class="site"><div class="wrap">
-  <a class="brand" href="/">
-    <img src="/favicon.svg" alt="IPA mark">
-    <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
-  </a>
+  <a class="brand" href="/"><img src="/favicon.svg" alt="IPA mark">
+    <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span></a>
   <nav class="main">
-      <a href="/">Home</a>
-      <a href="/book.html">The Book</a>
-      <a href="/sources.html">Sources: Laws by State</a>
-      <a href="/map.html" class="here">Context Map</a>
-      <a href="/order.html">Order</a>
-      <a href="/register.html">Register a Context</a>
-    </nav>
+    <a href="/">Home</a>
+    <a href="/book.html">The Book</a>
+    <a href="/sources.html">Sources</a>
+    <a href="/map.html" class="here">Context Map</a>
+    <a href="/register.html">Register</a>
+    <a href="/order.html">Order</a>
+  </nav>
 </div></header>
 <main class="wrap">
 
+<div class="hero">
 <h1>The Context Map</h1>
-<p class="sub">Find who has written down how they want to live - and where.</p>
-<p>Every registered community holistic context lives in a public registry, organized by place:
-nation, state, county, city or town, and neighborhood. Search below to see which contexts exist
-at each level, what they say, and whether the next level up is unlocked.</p>
-<div class="card sketch">
-<h3>Search the registry</h3>
-<input id="q" type="search" list="placehints" autocomplete="off" placeholder="Ask in plain words: counties in Florida, towns that agreed, show everything" style="width:100%; padding:10px 12px; font-size:16px; border:1.5px solid #B9AD9C; border-radius:12px; background:#FFFDF6; font-family:Georgia,serif;">
-<datalist id="placehints"><option value="counties in Florida"><option value="towns that agreed"><option value="show everything"><option value="locked or missing"><option value="Stuart"><option value="Martin County"></datalist>
-<div class="gf-grid" id="mapstats"></div>
-<div id="results" style="margin-top:14px;"></div>
+<p class="lede" style="color:var(--rust); font-size:19px;">Find who has written down how they want to live, and where.</p>
+<p style="color:var(--faint); max-width:900px;">Every registered community holistic context lives on the public record, organized by place:
+nation, state, county, city or town. Search below to see which contexts exist at each level, what
+they say, and whether the next level up is unlocked.</p>
 </div>
-<div class="card"><h3>How the levels connect</h3>
-<p class="small">A higher-level context can only exist when every lower level under it has both (a) registered its
+
+<div class="gf-grid" id="mapstats"></div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Search the registry</h2>
+  <div class="searchbar">
+    <input id="q" type="search" list="placehints" autocomplete="off"
+      placeholder="Ask in plain words: counties in Florida, towns that agreed, show everything">
+    <button class="btn ghost" id="clear" title="Clear search" onclick="document.getElementById('q').value='';render();">Clear</button>
+  </div>
+  <datalist id="placehints">
+    <option value="counties in Florida"><option value="towns that agreed"><option value="show everything">
+    <option value="locked or missing"><option value="Stuart"><option value="Martin County">
+  </datalist>
+  <div id="results" style="margin-top:16px;"></div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">How the levels connect</h2>
+  <p class="small">A higher-level context can only exist when every lower level under it has both (a) registered its
 own context and (b) agreed to send elected representatives to write the higher one. A missing lower level
-locks the higher one. This is by design: power flows upward as language, not as money.</p>
-<ul style="margin-left:20px;" class="small">
-<li><strong>National context</strong> - requires all 50 state contexts registered and in agreement</li>
-<li><strong>State context</strong> - requires all county contexts registered and in agreement</li>
-<li><strong>County context</strong> - requires the city/town contexts inside it</li>
-<li><strong>City or town context</strong> - the foundation; requires only its own people</li>
-</ul></div>
+locks the higher one. Power flows upward as language, not as money.</p>
+  <ul style="margin:12px 0 0 20px;" class="small">
+    <li><strong>National context</strong> - requires all 50 state contexts registered and in agreement</li>
+    <li><strong>State context</strong> - requires all county contexts registered and in agreement</li>
+    <li><strong>County context</strong> - requires the city and town contexts inside it</li>
+    <li><strong>City or town context</strong> - the foundation; requires only its own people</li>
+  </ul>
+</div>
+
 <script src="/registry-app.js"></script>
 <script>
 const REGISTRY_URL = "/registry/contexts.json";
@@ -131,39 +156,42 @@ function parseQuery(q){
   out.words = q.replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(w=>w && ![
     "counties","county","towns","town","city","cities","states","state","national","in","near",
     "from","the","a","of","registered","agreed","missing","locked","show","all","context",
-    "contexts","level","that","which","who","have","has","with","and","or","me","my","find","list"
+    "contexts","level","levels","that","which","who","have","has","with","and","or","me","my","find","list"
   ].includes(w));
   return out;
 }
-function allContexts(){
-  const pub = (REG.contexts||[]).map(c=>({
-    level:c.level||"", place:c.place||c.title||"", state:c.state||"", title:c.title||(c.place+" "+c.level),
-    text:c.text||"", date:c.date||"", signatures:c.signatures||0, status:c.status||""
-  }));
-  const loc = loadRegistry().map(c=>({
-    level:c.level, place:c.place, state:(c.parent||""), title:c.place+" "+c.level+" context",
+function publicRow(c){
+  return {level:c.level||"", place:c.place||c.title||"", state:c.state||"", title:c.title||(c.place+" "+c.level),
+    text:c.text||"", date:c.date||"", signatures:c.signatures||0, status:c.status||""};
+}
+function localRow(c){
+  return {level:c.level, place:c.place, state:(c.parent||""), title:c.place+" "+c.level+" context",
     text:c.text||"", date:fmtDate(c.on||Date.now()), signatures:c.sigs||0,
-    status:c.agreed?"agreed up":"registered, holding"
-  }));
-  return pub.concat(loc);
+    status:c.agreed?"agreed up":"registered, holding"};
+}
+function allContexts(){
+  return (REG.contexts||[]).map(publicRow).concat(loadRegistry().map(localRow));
+}
+function lvlClass(level){
+  const l = (level||"").toLowerCase();
+  if(l.includes("town")||l.includes("city")) return "town";
+  if(l.includes("county")) return "county";
+  if(l.includes("state")) return "state";
+  return "national";
 }
 function render(){
   const q = (document.getElementById("q").value||"").trim();
   const ql = q.toLowerCase();
   const box = document.getElementById("results");
-  const all = (REG.contexts||[]).concat(loadRegistry().map(c=>({
-    level:c.level, place:c.place, state:(c.parent||""), title:c.place+" "+c.level+" context",
-    text:c.text||"", date:fmtDate(c.on||Date.now()), signatures:c.sigs||0,
-    status:c.agreed?"agreed up":"registered, holding"
-  })));
+  const all = allContexts();
   document.getElementById("mapstats").innerHTML =
     statPanel("Total contexts", all.length) +
-    statPanel("Towns", all.filter(c=>c.level==="City or Town").length) +
+    statPanel("Towns", all.filter(c=>c.level==="City or Town").length, "#4C7A4C") +
     statPanel("Counties", all.filter(c=>c.level==="County").length, "#3E5C76") +
     statPanel("States", all.filter(c=>c.level==="State").length, "#C8A028") +
-    statPanel("National", all.filter(c=>c.level==="National").length, "#4C7A4C");
+    statPanel("National", all.filter(c=>c.level==="National").length, "#9A3C22");
   if(!all.length){
-    box.innerHTML = '<p class="small">No contexts registered yet. Yours could be the first: <a href="/register.html">register a context</a>.</p>';
+    box.innerHTML = '<div class="result"><p>No contexts registered yet. Yours could be the first. <a class="btn" style="margin-left:10px" href="/register.html">Register a context</a></p></div>';
     return;
   }
   const p = parseQuery(ql);
@@ -173,35 +201,34 @@ function render(){
     if(p.agreedOnly && !/agreed/i.test(c.status||"")) return false;
     const hay = (c.level+" "+c.place+" "+c.state+" "+(c.title||"")+" "+(c.text||"")).toLowerCase();
     if(ql && hay.includes(ql)) return true;
-    // fuzzy: every significant word appears somewhere (substring), partial words ok
     if(p.words.length){
       const generic = p.words.every(w=>["everything","anything","all","any","each","context","contexts","level","levels","place","places"].includes(w));
       if(generic) return true;
-      const score = p.words.reduce((n,t)=> n + (hay.includes(t) ? 1 : (hay.includes(t.slice(0, Math.max(3, t.length-2))) ? 0.5 : 0)), 0);
-      return score >= Math.min(p.words.length, 1);
+      return p.words.every(t=>hay.includes(t) || hay.includes(t.slice(0, Math.max(3, t.length-2))));
     }
-    return true;
+    return !ql;
   });
-  box.innerHTML = hits.length ? hits.map(c =>
-    '<div class="card" style="margin:10px 0;"><span class="lvl" style="color:var(--rust)">'+esc(c.level)+'</span> - <strong>'+esc(c.title)+'</strong>'+
-    '<br><span class="small">'+esc([c.place,c.state].filter(Boolean).join(", "))+
-    ' | registered '+esc(c.date||"")+' | '+esc(String(c.signatures||0))+' signatures | status: '+esc(c.status||"")+'</span>'+
-    (c.text ? '<br><p style="margin-top:8px;">'+esc(String(c.text).slice(0,240))+'...</p>' : '')+'</div>').join("")
-    : '<p class="small">Nothing matches "'+esc(q)+'" yet. Try plain words: "counties in Florida", "towns that agreed", or just a place name.</p>';
+  if(!hits.length){
+    box.innerHTML = '<div class="result"><p>Nothing matches "'+esc(q)+'" yet. Try plain words: "counties in Florida", "towns that agreed", or just a place name.</p></div>';
+    return;
+  }
+  box.innerHTML = hits.map(c =>
+    '<div class="result"><span class="lvl '+lvlClass(c.level)+'">'+esc(c.level)+'</span><strong>'+esc(c.title)+'</strong>'+
+    '<span class="status '+(/agreed/i.test(c.status||"")?"ok":"lock")+'">'+esc(c.status||"")+'</span>'+
+    '<div class="small" style="margin-top:6px;">'+esc([c.place,c.state].filter(Boolean).join(", "))+
+    ' | registered '+esc(c.date||"")+' | '+esc(String(c.signatures||0))+' signatures</div>'+
+    (c.text ? '<p style="margin-top:8px;">'+esc(String(c.text).slice(0,260))+'...</p>' : '')+'</div>').join("");
 }
 document.getElementById("q").addEventListener("input", render);
-loadReg = loadReg; loadReg();
+document.getElementById("clear").addEventListener("click", ()=>setTimeout(render,0));
+loadReg = loadReg || null;
+(function boot(){ fetch(REGISTRY_URL).then(r=>r.json()).then(j=>{REG=j; render();}).catch(()=>render()); })();
 </script>
 
 </main>
 <footer class="site"><div class="wrap">
-  <div class="share">
-    <a href="https://twitter.com/intent/tweet?text=The%20Independent%20Parties%20of%20America%20-%20a%20third%20foundation%20for%20the%20discarded%20half&url=https://usaipa.org">Share on X</a>
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org">Share on LinkedIn</a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://usaipa.org">Share on Facebook</a>
-  </div>
-  <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.
-  Book by Rodger R Savory. Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+  <p>Founded on the Constitution and the Bill of Rights | Governed by the written word of its communities | Book by Rodger R Savory</p>
+  <p>Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
 </div></footer>
 </body>
 </html>

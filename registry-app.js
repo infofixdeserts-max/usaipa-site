@@ -9,7 +9,7 @@ function loadRegistry(){
 }
 function saveRegistry(a){ localStorage.setItem(LS_CTX, JSON.stringify(a)); }
 function slug(s){ return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
-function esc(s){ const d=document.createElement("div"); d.textContent=s||""; return d.innerHTML; }
+function esc(s){ const d=document.createElement("div"); d.textContent=(s===undefined||s===null)?"":String(s); return d.innerHTML; }
 function fmtDate(ts){ return new Date(ts).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}); }
 
 function lowerLevelOf(lvl){ return LEVELS[LEVELS.indexOf(lvl)-1] || null; }

@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register a Context | The Independent Parties of America</title>
-<meta name="description" content="Register your community's holistic context on the public record. Higher levels require every lower level registered and in agreement - the hierarchy lock. Track votes and policies too.">
+<meta name="description" content="Register your community's holistic context on the public record. Higher levels require every lower level registered and in agreement - the hierarchy lock. Track votes and policies.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Independent Parties of America">
 <meta property="og:title" content="Register a Context | The Independent Parties of America">
-<meta property="og:description" content="Register your community's holistic context. Higher levels stay locked until every lower level is registered and agrees.">
+<meta property="og:description" content="Put your community's word on the public record. Higher levels stay locked until every lower level is registered and agrees.">
 <meta property="og:url" content="https://usaipa.org/register.html">
-<meta property="og:image" content="https://usaipa.org/images/hero.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://usaipa.org/register.html">
 <style>
@@ -20,47 +19,57 @@
     --rule:#B9AD9C; --rust:#9A3C22; --blue:#3E5C76; --gold:#C8A028; --green:#4C7A4C;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
   body{background:var(--paper); color:var(--ink); font-family:Georgia,'Times New Roman',serif; line-height:1.65; font-size:17px;}
   a{color:var(--rust);}
-  .wrap{max-width:1060px; margin:0 auto; padding:0 22px;}
-  header.site{padding:26px 0 18px; border-bottom:2px solid var(--rule); background:var(--paper);}
+  .wrap{max-width:1150px; margin:0 auto; padding:0 24px;}
+  header.site{padding:24px 0 18px; border-bottom:2px solid var(--rule); background:linear-gradient(180deg,#FDF9F0 0%,#F6EEDD 100%);}
   .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
   .brand img{width:52px; height:52px;}
-  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px; line-height:1.15;}
-  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase;}
-  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:4px 18px; font-size:15px;}
-  nav.main a{color:var(--deep); text-decoration:none; padding:6px 10px; border:1.6px solid transparent;}
-  nav.main a:hover{border:1.6px solid var(--rust);}
-  nav.main a.here{border:1.6px solid var(--rule);}
-  .card{background:var(--panel); border:1.5px solid var(--rule); border-radius:14px; padding:22px 24px; margin:18px 0;}
-  h1{color:var(--deep); font-size:30px; margin:28px 0 4px;}
-  h2{color:var(--deep); font-size:21px; margin:18px 0 8px;}
-  h3{color:var(--deep); font-size:17px; margin:0 0 8px;}
-  .sub{color:var(--faint); font-size:16px; margin-bottom:14px;}
-  .small{font-size:14px; color:var(--faint);}
-  .btn{display:inline-block; background:var(--rust); color:#FCF8EF; text-decoration:none; border:none;
-       font-family:Georgia,serif; font-size:16px; padding:10px 22px; border-radius:10px; cursor:pointer;}
-  .btn:hover{background:#7F2F19;}
-  .btn.secondary{background:var(--blue);}
-  .btn.ghost{background:transparent; color:var(--deep); border:1.6px solid var(--rule);}
-  label{font-size:14.5px; color:var(--deep); font-weight:bold;}
-  input,select,textarea{font-family:Georgia,serif; font-size:16px; padding:10px; border:1.5px solid #B9AD9C; background:#FFFDF6; border-radius:8px;}
-  footer.site{margin-top:40px; padding:22px 0 30px; border-top:2px solid var(--rule); color:var(--faint); font-size:14px;}
-  .lock{color:#7F2F19; font-weight:bold;}
-  .ok{color:var(--green, #4C7A4C); font-weight:bold;}
+  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px;}
+  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.6px; text-transform:uppercase;}
+  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:6px 16px; font-size:15px;}
+  nav.main a{color:var(--deep); text-decoration:none; padding:7px 13px; border:1.6px solid transparent; border-radius:9px;}
+  nav.main a:hover{border-color:var(--rust);}
+  nav.main a.here{border-color:var(--rule); background:#FFFDF6;}
 
-  /* Grafana-style panels ("grafyfy") */
-  .gf-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:16px 0;}
-  .gf-panel{background:#FFFDF6; border:1.5px solid #B9AD9C; border-radius:12px; padding:14px 16px; box-shadow:0 1px 0 #B9AD9C;}
-  .gf-label{font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--faint);}
-  .gf-value{font-size:34px; font-weight:bold; line-height:1.15; margin-top:4px;}
-  .gf-sub{font-size:12.5px; color:var(--faint);}
-  .gf-bar{height:14px; background:#F0E8D6; border-radius:8px; overflow:hidden; margin-top:10px; border:1px solid #B9AD9C;}
-  .gf-bar{height:100%; background:var(--rust);}
-  .gf-row{display:flex; justify-content:space-between; gap:10px; border-bottom:1px dashed #D8CDBB; padding:8px 0; font-size:15px;}
-  .tag{display:inline-block; font-size:12px; padding:2px 10px; border-radius:99px; border:1.4px solid var(--rule); color:var(--faint); margin-left:8px;}
-  .tag.ok{border-color:var(--green,#4C7A4C); color:#4C7A4C;}
-  .tag.lock{border-color:#7F2F19; color:#7F2F19;}
+  .hero{margin:30px 0 8px;}
+  .hero h1{color:var(--deep); font-size:34px;}
+  .hero .lede{color:var(--rust); font-size:19px; margin:4px 0 6px;}
+
+  .gf-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:14px; margin:20px 0;}
+  .gf-panel{background:linear-gradient(180deg,#FFFDF6 0%,#F9F1E0 100%); border:1.5px solid var(--rule);
+    border-radius:14px; padding:18px 20px; box-shadow:0 2px 0 rgba(185,173,156,.55), 0 8px 20px rgba(63,53,39,.06);}
+  .gf-label{font-size:11.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--faint); font-family:'Segoe UI',Arial,sans-serif;}
+  .gf-value{font-size:38px; font-weight:bold; line-height:1.1; margin-top:6px;}
+
+  .card{background:var(--panel); border:1.5px solid var(--rule); border-radius:16px; padding:26px 28px; margin:20px 0;
+        box-shadow:0 8px 22px rgba(63,53,39,.05);}
+  .card.accent{border-color:var(--rust); background:linear-gradient(180deg,#FFF9EE 0%,#FFFDF6 60%);}
+  h2{color:var(--deep); font-size:22px; margin:26px 0 8px;}
+  h3{color:var(--deep); font-size:17.5px; margin:0 0 10px;}
+  .sub{color:var(--faint); font-size:16px;}
+  .small{font-size:14px; color:var(--faint);}
+  label{font-size:14.5px; color:var(--deep); font-weight:bold;}
+  input,select,textarea{font-family:Georgia,serif; font-size:16px; padding:12px 14px; border:1.5px solid var(--rule);
+    border-radius:10px; background:#FFFDF6; color:var(--ink); width:100%;}
+  input:focus,select:focus,textarea:focus{outline:2px solid rgba(154,60,34,.35); border-color:var(--rust);}
+  .btn{display:inline-block; background:var(--rust); color:#FCF8EF; text-decoration:none; border:none;
+       font-family:Georgia,serif; font-size:16.5px; padding:13px 28px; border-radius:11px; cursor:pointer; text-align:center;}
+  .btn:hover{background:#7F2F19;}
+  .btn.secondary{background:var(--blue);} .btn.secondary:hover{background:#2E4658;}
+  .btn.gold{background:var(--gold); color:#2B2622;} .btn.gold:hover{background:#A8861C;}
+  .lock{color:#7F2F19; font-weight:bold;}
+  .okmsg{color:var(--green); font-weight:bold;}
+  .fieldrow{margin:14px 0;}
+  .tag{display:inline-block; font-size:12.5px; padding:3px 12px; border-radius:99px; border:1.4px solid var(--rule); color:var(--faint); margin-left:8px;}
+  .tag.ok{border-color:var(--green); color:var(--green);}
+  .steps li{list-style:none; counter-increment:s; padding:9px 0 9px 42px; position:relative; border-bottom:1px dashed #D8CDBB; font-size:15.5px;}
+  .steps{counter-reset:s;}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:9px; width:29px; height:29px; border-radius:50%;
+    background:var(--rust); color:#FCF8EF; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:14px;}
+  .regrow{border:1px dashed #D8CDBB; border-radius:11px; padding:14px 16px; margin:10px 0; background:#FFFDF6;}
+  footer.site{margin-top:44px; padding:24px 0 32px; border-top:2px solid var(--rule); color:var(--faint); font-size:14px;}
 </style>
 </head>
 <body>
@@ -68,96 +77,133 @@
   <a class="brand" href="/"><img src="/favicon.svg" alt="IPA mark">
     <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span></a>
   <nav class="main">
-      <a href="/">Home</a>
-      <a href="/book.html">The Book</a>
-      <a href="/sources.html">Sources: Laws by State</a>
-      <a href="/map.html">Context Map</a>
-      <a href="/register.html" class="here">Register a Context</a>
+    <a href="/">Home</a>
+    <a href="/book.html">The Book</a>
+    <a href="/sources.html">Sources</a>
+    <a href="/map.html">Context Map</a>
+    <a href="/register.html" class="here">Register</a>
+    <a href="/order.html">Order</a>
   </nav>
 </div></header>
 <main class="wrap">
 
+<div class="hero">
 <h1>Register a Context</h1>
-<p class="sub">Put your community's word on the public record. Track votes. Watch the levels unlock.</p>
+<p class="lede" style="color:var(--rust); font-size:19px;">Put your community's word on the public record. Track votes. Watch the levels unlock.</p>
+</div>
 
 <div class="gf-grid" id="stats"></div>
 
 <div class="card">
-<p><strong>The rule of levels.</strong> A context for a higher level can only be registered when
-<strong>every lower level under it</strong> has (a) a registered context and (b) recorded agreement
-to send elected representatives to the higher table. If even one lower level is missing or objects,
-the higher level stays locked. No exceptions.</p>
-<p class="small">Example: a state context requires all counties in that state registered and agreeing.
+<h3>The rule of levels</h3>
+<p>A context for a higher level can only be registered when <strong>every lower level under it</strong>
+has (a) a registered context and (b) recorded agreement to send elected representatives to the higher
+table. If even one lower level is missing or objects, the higher level stays locked. No exceptions.</p>
+<p class="small" style="margin-top:8px;">Example: a state context requires all counties in that state registered and agreeing.
 A county context requires its cities and towns. A city or town context is the foundation - it needs
 only its own people.</p>
 </div>
 
-<div class="card" style="border-color:#9A3C22;">
-<h3>Register your place on the public record</h3>
-<p class="small" style="margin-bottom:12px;">Registration carries a $1 filing fee. It covers steward review and the public record entry. The button opens the payment page in a new tab - this page stays open while you pay.</p>
-<p><a class="btn" href="/order.html?product=register" target="_blank" rel="noopener">Pay the $1 registration fee (opens a new page)</a></p>
-<p class="small" id="paidRef" style="margin-top:8px;">After paying, your receipt email contains a reference code. Enter it below to unlock filing.</p>
-<p><input id="payref" type="text" placeholder="Reference code from your receipt (e.g. IPA-XXXXXX)" style="width:min(420px,100%);"></p>
+<div class="card accent">
+<h3>Step 1: Pay the registration fee</h3>
+<p class="small" style="margin-bottom:12px;">A $10 filing fee covers steward review and the permanent public record entry.
+The button opens the payment page in a new tab - this page stays open while you pay.</p>
+<p><a class="btn" href="/order.html?product=register" target="_blank" rel="noopener">Pay the $10 registration fee (opens a new page)</a></p>
+<div class="fieldrow" style="margin-top:14px;">
+  <label for="payref">Receipt reference code (from your payment email)</label>
+  <input id="payref" type="text" placeholder="e.g. IPA-XXXXXX" style="max-width:420px;">
 </div>
-<h2>Start a registration</h2>
-<div class="card">
-<p><label for="lvl">Level you are registering</label></p>
-<p><select id="lvl">
-<option value="">Choose one...</option>
-<option value="City or Town">City or Town (foundation level, always unlocked)</option>
-<option value="County">County (needs its cities and towns)</option>
-<option value="State">State (needs all its counties)</option>
-<option value="National">National (needs all 50 states)</option>
-</select></p>
-<p><label for="place">Place name</label><br>
-<input id="place" type="text" placeholder="e.g. Stuart" style="width:100%;"></p>
-<p><label for="parent">Parent place (the level above you)</label><br>
-<input id="parent" type="text" placeholder="e.g. Martin County, Florida" style="width:100%;"></p>
-<p><label for="ctext">Your community context (how you want your lives to be: socially, economically, environmentally, near and far term)</label><br>
-<textarea id="ctext" rows="7" style="width:100%;" placeholder="We live in a town where..."></textarea></p>
-<p><label for="ltotal">How many lower-level places are under you? (counties in your state, towns in your county; leave 0 if none)</label><br>
-<input id="ltotal" type="number" min="0" value="0" style="width:170px;"></p>
-<p><label for="sigs">Signatures gathered (people who took part in writing)</label><br>
-<input id="sigs" type="number" min="1" style="width:170px;"></p>
-<p><label for="contact">Contact email (not published)</label><br>
-<input id="contact" type="email" style="width:100%;"></p>
-<p><button id="submit" class="btn">Check the hierarchy and file</button></p>
-<div id="status" style="margin-top:12px;"></div>
+<p class="small">Your registration is verified by the stewards against this reference before it joins the public file.</p>
 </div>
 
-<h2>Record agreement (lower levels send representatives up)</h2>
 <div class="card">
-<p class="small">A lower level records agreement when it votes to send elected representatives to write the next context up. Without this record, the higher level stays locked.</p>
-<p style="margin-top:10px;"><label for="ag_place">Place that agrees</label><br>
-<input id="ag_place" type="text" placeholder="e.g. Stuart" style="width:60%;"></p>
-<p><label for="ag_lvl">Level</label><br>
-<select id="ag_lvl">
-<option>City or Town</option><option>County</option><option>State</option>
-</select></p>
+<h3>Step 2: File your context</h3>
+<div class="fieldrow">
+  <label for="lvl">Level you are registering</label>
+  <select id="lvl">
+    <option value="">Choose one...</option>
+    <option value="City or Town">City or Town (foundation level, always unlocked)</option>
+    <option value="County">County (needs its cities and towns)</option>
+    <option value="State">State (needs all its counties)</option>
+    <option value="National">National (needs all 50 states)</option>
+  </select>
+</div>
+<div class="fieldrow">
+  <label for="place">Place name</label>
+  <input id="place" type="text" placeholder="e.g. Stuart">
+</div>
+<div class="fieldrow">
+  <label for="parent">Parent place (the level above you)</label>
+  <input id="parent" type="text" placeholder="e.g. Martin County, Florida">
+</div>
+<div class="fieldrow">
+  <label for="ltotal">How many lower-level places are under you? (counties in your state, towns in your county; 0 if none)</label>
+  <input id="ltotal" type="number" min="0" value="0" style="max-width:200px;">
+</div>
+<div class="fieldrow">
+  <label for="ctext">Your community context (how you want your lives to be: socially, economically, environmentally, near and far term)</label>
+  <textarea id="ctext" rows="7" placeholder="We live in a town where..."></textarea>
+</div>
+<div class="fieldrow">
+  <label for="sigs">Signatures gathered (people who took part in writing)</label>
+  <input id="sigs" type="number" min="1" style="max-width:200px;">
+</div>
+<div class="fieldrow">
+  <label for="contact">Contact email (not published)</label>
+  <input id="contact" type="email">
+</div>
+<p><button id="submit" class="btn">Check the hierarchy and file</button></p>
+<div id="status" style="margin-top:14px;"></div>
+</div>
+
+<div class="card">
+<h3>Record agreement (lower levels send representatives up)</h3>
+<p class="small">A lower level records agreement when it votes to send elected representatives to write the
+next context up. Without this record, the higher level stays locked.</p>
+<div class="fieldrow">
+  <label for="ag_place">Place that agrees</label>
+  <input id="ag_place" type="text" placeholder="e.g. Stuart" style="max-width:420px;">
+</div>
+<div class="fieldrow">
+  <label for="ag_lvl">Level</label>
+  <select id="ag_lvl" style="max-width:280px;">
+    <option>City or Town</option><option>County</option><option>State</option>
+  </select>
+</div>
 <p><button id="agree" class="btn secondary">Record agreement</button></p>
 <div id="ag_status" style="margin-top:10px;"></div>
 </div>
 
-<h2>Track votes and policies</h2>
 <div class="card">
-<p class="small">Record how a place voted on a policy, and whether the vote moved the community toward its context. Anyone can read this record.</p>
-<p style="margin-top:10px;"><label for="v_place">Place</label><br>
-<input id="v_place" type="text" placeholder="e.g. Stuart" style="width:40%;"></p>
-<p><label for="v_lvl">Level</label><br>
-<select id="v_lvl"><option>City or Town</option><option>County</option><option>State</option><option>National</option></select></p>
-<p><label for="v_what">Policy or vote</label><br>
-<input id="v_what" type="text" placeholder="e.g. Ordinance 2026-14, river setback" style="width:100%;"></p>
-<p><label for="v_how">Toward the context or away from it?</label><br>
-<select id="v_how"><option>Toward</option><option>Away</option><option>Neutral</option></select></p>
+<h3>Track votes and policies</h3>
+<p class="small">Record how a place voted on a policy, and whether the vote moved the community toward its
+context. Anyone can read this record.</p>
+<div class="fieldrow">
+  <label for="v_place">Place</label>
+  <input id="v_place" type="text" placeholder="e.g. Stuart" style="max-width:340px;">
+</div>
+<div class="fieldrow">
+  <label for="v_lvl">Level</label>
+  <select id="v_lvl" style="max-width:280px;"><option>City or Town</option><option>County</option><option>State</option><option>National</option></select>
+</div>
+<div class="fieldrow">
+  <label for="v_what">Policy or vote</label>
+  <input id="v_what" type="text" placeholder="e.g. Ordinance 2026-14, river setback">
+</div>
+<div class="fieldrow">
+  <label for="v_how">Toward the context or away from it?</label>
+  <select id="v_how" style="max-width:280px;"><option>Toward</option><option>Away</option><option>Neutral</option></select>
+</div>
 <p><button id="vote" class="btn secondary">Record the vote</button></p>
 <div id="v_status" style="margin-top:10px;"></div>
 </div>
 
-<h2>The public registry</h2>
 <div class="card">
+<h3>The public registry</h3>
 <div id="registryList"></div>
-<p class="small" style="margin-top:10px;">This registry lives in this browser (demo mode) and merges with the public file at
-<a href="/registry/contexts.json">/registry/contexts.json</a>. Filings are reviewed by stewards, then published to the public file through an auditable pull request anyone can read.</p>
+<p class="small" style="margin-top:12px;">This browser copy joins the public file at
+<a href="/registry/contexts.json">/registry/contexts.json</a> after steward review, through an auditable
+pull request anyone can read. Filings are never auto-approved.</p>
 </div>
 
 <script src="/registry-app.js"></script>
@@ -169,14 +215,14 @@ function renderStats(){
   const states = reg.filter(c=>c.level==="State").length;
   const national = reg.filter(c=>c.level==="National").length;
   const agreed = reg.filter(c=>c.agreed).length;
-  const votes = reg.reduce((n,c)=>n+(c.votes?c.votes.length:0),0);
+  const votes = reg.reduce((n,c)=>n+((c.votes&&c.votes.length)||0),0);
   const cov = coveragePct();
   document.getElementById("stats").innerHTML =
-    statPanel("Town contexts", towns) +
+    statPanel("Town contexts", towns, "#4C7A4C") +
     statPanel("County contexts", counties, "#3E5C76") +
     statPanel("State contexts", states, "#C8A028") +
-    statPanel("National", national, national?"#4C7A4C":"#7A7166") +
-    statPanel("Agreements recorded", reg.filter(c=>c.agreed).length, "#4C7A4C") +
+    statPanel("National", national, "#9A3C22") +
+    statPanel("Agreements", agreed, "#4C7A4C") +
     statPanel("Votes tracked", votes, "#3E5C76") +
     statPanel("County coverage", cov+"%", cov>=80?"#4C7A4C":"#C8A028");
 }
@@ -186,14 +232,12 @@ function renderRegistry(){
   if(!reg.length){ box.innerHTML = '<p class="small">The registry is empty. Be the first: start with your town.</p>'; return; }
   box.innerHTML = reg.map(c=>{
     const v = c.votes||[];
-    const lastVote = v.length ? " Last vote: "+esc(v[v.length-1].what)+" ("+esc(v[v.length-1].how)+", "+fmtDate(v[v.length-1].on)+")" : "";
-    return '<div style="border-bottom:1px dashed #D8CDBB; padding:10px 0;">'
-      + '<strong>'+esc(c.place)+'</strong> <span class="tag">'+esc(c.level)+'</span>'
-      + '<span class="tag '+(c.agreed?"ok":"")+'">'+(c.agreed?"agreed up":"holding")+'</span>'
-      + (c.parent?' <span class="small">under '+esc(c.parent)+'</span>':'')
-      + '<div class="small">'+esc((c.text||"").slice(0,180))+'...</div>'
-      + '<div class="small">'+(c.sigs||0)+' signers | registered '+fmtDate(c.on)+' | '+v.length+' vote'+(v.length===1?"":"s")+' tracked</div>'
-      + '</div>';
+    const last = v.length ? " Last vote: "+esc(v[v.length-1].what)+" ("+esc(v[v.length-1].how)+", "+fmtDate(v[v.length-1].on)+")" : "";
+    return '<div class="regrow"><strong>'+esc(c.place)+'</strong><span class="tag">'+esc(c.level)+'</span>'
+      +'<span class="tag '+(c.agreed?"ok":"lock")+'">'+(c.agreed?"agreed up":"holding")+'</span>'
+      +(c.parent?' <span class="small">under '+esc(c.parent)+'</span>':'')
+      +'<div class="small" style="margin-top:6px;">'+esc((c.text||"").slice(0,200))+'...</div>'
+      +'<div class="small">'+(c.sigs||0)+' signers | registered '+fmtDate(c.on)+' | '+v.length+' vote'+(v.length===1?"":"s")+' tracked'+last+'</div></div>';
   }).join("");
 }
 document.getElementById("submit").addEventListener("click", ()=>{
@@ -203,17 +247,17 @@ document.getElementById("submit").addEventListener("click", ()=>{
   const text = document.getElementById("ctext").value.trim();
   const sigs = document.getElementById("sigs").value;
   const email = document.getElementById("contact").value.trim();
+  const ltotal = document.getElementById("ltotal").value;
   const st = document.getElementById("status");
   if(!lvl || !place || !text || !sigs){ st.innerHTML = '<p class="lock">Fill in level, place, context text, and signatures.</p>'; return; }
-  const ltotal = document.getElementById("ltotal").value;
   const r = submitContext(lvl, place, parent, text, sigs, email, ltotal);
-  let html = r.ok ? '<p class="ok">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
+  let html = r.ok ? '<p class="okmsg">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
   if(r.ok){
     const mailto = "mailto:registry@usaipa.org"
       + "?subject=" + encodeURIComponent("IPA context registration: " + lvl + " - " + place)
-      + "&body=" + encodeURIComponent("LEVEL: "+lvl+"\nPLACE: "+place+"\nPARENT: "+parent+"\nSIGNATURES: "+sigs+"\nCONTACT: "+email+"\n\nCONTEXT:\n"+text);
-    html += '<p style="margin-top:10px;"><a class="btn" href="'+mailto+'">Send the steward filing email (pre-filled)</a></p>';
-    html += '<p class="small">Your copy is saved in this browser. The public copy goes live after steward review.</p>';
+      + "&body=" + encodeURIComponent("LEVEL: "+lvl+"\nPLACE: "+place+"\nPARENT: "+parent+"\nSIGNATURES: "+sigs+"\nPAYMENT REF: "+(document.getElementById("payref").value||"[enter after paying]")+"\nCONTACT: "+email+"\n\nCONTEXT:\n"+text);
+    html += '<p style="margin-top:12px;"><a class="btn" href="'+mailto+'">Send the steward filing email (pre-filled)</a></p>';
+    html += '<p class="small">Your copy is saved in this browser. The public copy goes live after steward review of your $10 filing fee.</p>';
     document.getElementById("ctext").value = "";
     document.getElementById("sigs").value = "";
   }
@@ -226,7 +270,7 @@ document.getElementById("agree").addEventListener("click", ()=>{
   const st = document.getElementById("ag_status");
   if(!place){ st.innerHTML='<p class="lock">Type the place name.</p>'; return; }
   const r = recordAgreement(lvl, place);
-  st.innerHTML = r.ok ? '<p class="ok">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
+  st.innerHTML = r.ok ? '<p class="okmsg">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
   renderStats(); renderRegistry();
 });
 document.getElementById("vote").addEventListener("click", ()=>{
@@ -237,7 +281,7 @@ document.getElementById("vote").addEventListener("click", ()=>{
   const st = document.getElementById("v_status");
   if(!place || !what){ st.innerHTML='<p class="lock">Type the place and the policy.</p>'; return; }
   const r = addVote(lvl, place, what, how);
-  st.innerHTML = r.ok ? '<p class="ok">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
+  st.innerHTML = r.ok ? '<p class="okmsg">'+esc(r.msg)+'</p>' : '<p class="lock">'+esc(r.msg)+'</p>';
   renderStats(); renderRegistry();
 });
 renderStats(); renderRegistry();
@@ -249,8 +293,8 @@ renderStats(); renderRegistry();
 
 </main>
 <footer class="site"><div class="wrap">
-  <p class="small">The Independent Parties of America | Founded on the Constitution and the Bill of Rights | Governed by the written word of its communities</p>
-  <p class="small"><a href="/">Home</a> | <a href="/book.html">The Book</a> | <a href="/sources.html">Sources</a> | <a href="/map.html">Map</a> | <a href="/register.html">Register</a></p>
+  <p>Founded on the Constitution and the Bill of Rights | Governed by the written word of its communities</p>
+  <p><a href="/">Home</a> | <a href="/book.html">The Book</a> | <a href="/sources.html">Sources</a> | <a href="/map.html">Map</a> | <a href="/register.html">Register</a> | <a href="/order.html">Order</a></p>
 </div></footer>
 </body>
 </html>
