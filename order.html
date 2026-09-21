@@ -86,7 +86,7 @@
   <div class="card">
     <h3>Choose your edition</h3>
     <p><label><input type="radio" name="ed" value="mirtav" checked> <strong>Digital edition</strong> - <span class="price">$4.99</span> <span class="fmt">(PDF + EPUB, instant)</span></label></p>
-    <p style="margin-top:8px;"><label><input type="radio" name="ed" value="paperback"> <strong>Paperback</strong> - <span class="price">$3.99</span> <span class="fmt">(print on demand, ships)</span></label></p>
+    <p style="margin-top:8px;"><label><input type="radio" name="ed" value="paperback"> <strong>Paperback (print on demand)</strong> - <span class="price">$4.25</span> <span class="fmt">prints + ships worldwide</span></label></p>
     <p style="margin-top:8px;"><label><input type="radio" name="ed" value="register"> <strong>Community registration fee</strong> - <span class="price">$10</span> <span class="fmt">register a context on the public record</span></label></p>
     <p style="margin-top:14px;"><button class="btn" id="checkoutBtn">Continue to secure checkout</button></p>
     <p class="fmt" style="margin-top:8px;">Digital and registration are delivered instantly by email. The paperback ships from our print partner.</p>
@@ -115,7 +115,7 @@
 <script>
 const PRODUCTS = {
   mirtav:    {url:"https://savoryhughs.gumroad.com/l/mirtav?embedded=true", name:"Digital edition"},
-  paperback: {url:"https://savoryhughs.gumroad.com/l/mirtav?embedded=true#paperback", name:"Paperback"},
+  paperback: {url:"LULU", name:"Paperback (print on demand)"},
   register:  {url:"https://savoryhughs.gumroad.com/l/iparegister10?embedded=true", name:"Registration fee"}
 };
 const params = new URLSearchParams(location.search);
@@ -123,6 +123,18 @@ const pre = params.get("product");
 function pick(val){
   const p = PRODUCTS[val] || PRODUCTS.mirtav;
   document.getElementById("co-title").textContent = "Checkout: " + p.name;
+  if(p.url === "LULU"){
+    document.getElementById("co-frame").innerHTML =
+      '<div style="border:2px dashed #B9AD9C; border-radius:12px; padding:26px 20px; text-align:center;">'
+      + '<p style="font-weight:bold; color:#3F3527;">Paperback printing moves to our print partner this week.</p>'
+      + '<p style="margin-top:8px; color:#7A7166;">The $4.25 paperback is printed on demand and shipped worldwide. While the print run is being set up, every paperback order is handled by email within one business day.</p>'
+      + '<p style="margin-top:14px;"><a class="btn" href="mailto:orders@usaipa.org?subject='
+      + encodeURIComponent("Paperback order - The Independent Parties of America - $4.25")
+      + '">Order the paperback by email</a></p>'
+      + '<p class="fmt" style="margin-top:10px;">You pay after we confirm the shipping cost for your address. No payment is taken now.</p></div>';
+    document.getElementById("co-frame").scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
   document.getElementById("co-frame").innerHTML =
     '<iframe id="checkout" src="'+p.url+'" title="Secure checkout" allow="payment *;"></iframe>';
   document.getElementById("co-frame").scrollIntoView({behavior:"smooth", block:"center"});
