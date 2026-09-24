@@ -86,7 +86,7 @@
   <div class="card">
     <h3>Choose your edition</h3>
     <p><label><input type="radio" name="ed" value="mirtav" checked> <strong>Digital edition</strong> - <span class="price">$4.99</span> <span class="fmt">(PDF + EPUB, instant)</span></label></p>
-    <p style="margin-top:8px;"><label><input type="radio" name="ed" value="paperback"> <strong>Paperback (print on demand)</strong> - <span class="price">$4.25</span> <span class="fmt">prints + ships worldwide</span></label></p>
+    <p style="margin-top:8px;"><label><input type="radio" name="ed" value="paperback"> <strong>Paperback (print on demand)</strong> - <span class="price">$12.98</span> <span class="fmt">prints + ships worldwide</span></label></p>
     <p style="margin-top:8px;"><label><input type="radio" name="ed" value="register"> <strong>Community registration fee</strong> - <span class="price">$10</span> <span class="fmt">register a context on the public record</span></label></p>
     <p style="margin-top:14px;"><button class="btn" id="checkoutBtn">Continue to secure checkout</button></p>
     <p class="fmt" style="margin-top:8px;">Digital and registration are delivered instantly by email. The paperback ships from our print partner.</p>
@@ -103,7 +103,7 @@
   <ol class="steps">
     <li>Pick your edition and continue to checkout on this page.</li>
     <li>Pay by card, Apple Pay, or Google Pay - handled by our payment partner over an encrypted connection.</li>
-    <li>Digital editions and registration receipts arrive by email in minutes. Paperbacks are printed and shipped.</li>
+    <li>Digital editions and registration receipts arrive by email in minutes. The paperback is printed on demand and shipped by our print partner, Lulu.</li>
     <li>Registration fees include your place on the public registry once stewards verify your filing.</li>
   </ol>
 </div>
@@ -115,7 +115,7 @@
 <script>
 const PRODUCTS = {
   mirtav:    {url:"https://savoryhughs.gumroad.com/l/mirtav?embedded=true", name:"Digital edition"},
-  paperback: {url:"LULU", name:"Paperback (print on demand)"},
+  paperback: {url:"https://www.lulu.com/shop/rodger-savory/the-independent-parties-of-america/paperback/product-95v8ykj.html", name:"Paperback (print on demand)", external:true},
   register:  {url:"https://savoryhughs.gumroad.com/l/efugv?embedded=true", name:"Registration fee"}
 };
 const params = new URLSearchParams(location.search);
@@ -123,16 +123,8 @@ const pre = params.get("product");
 function pick(val){
   const p = PRODUCTS[val] || PRODUCTS.mirtav;
   document.getElementById("co-title").textContent = "Checkout: " + p.name;
-  if(p.url === "LULU"){
-    document.getElementById("co-frame").innerHTML =
-      '<div style="border:2px dashed #B9AD9C; border-radius:12px; padding:26px 20px; text-align:center;">'
-      + '<p style="font-weight:bold; color:#3F3527;">Paperback printing moves to our print partner this week.</p>'
-      + '<p style="margin-top:8px; color:#7A7166;">The $4.25 paperback is printed on demand and shipped worldwide. While the print run is being set up, every paperback order is handled by email within one business day.</p>'
-      + '<p style="margin-top:14px;"><a class="btn" href="mailto:orders@usaipa.org?subject='
-      + encodeURIComponent("Paperback order - The Independent Parties of America - $4.25")
-      + '">Order the paperback by email</a></p>'
-      + '<p class="fmt" style="margin-top:10px;">You pay after we confirm the shipping cost for your address. No payment is taken now.</p></div>';
-    document.getElementById("co-frame").scrollIntoView({behavior:"smooth", block:"center"});
+  if(p.external){
+    window.open(p.url, "_blank", "noopener");
     return;
   }
   document.getElementById("co-frame").innerHTML =
@@ -144,7 +136,7 @@ document.getElementById("checkoutBtn").addEventListener("click", ()=>{
   if(val === "amazonpb"){ window.open(PRODUCTS.amazonpb.url, "_blank", "noopener"); return; }
   pick(val);
 });
-if(params.get("product")) { pick(params.get("product")); }
+if(params.get("product") && !(PRODUCTS[params.get("product")] || {}).external) { pick(params.get("product")); }
 </script>
 </body>
 </html>
