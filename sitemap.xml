@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://usaipa.org/</loc></url>
-<url><loc>https://usaipa.org/book.html</loc></url>
-<url><loc>https://usaipa.org/sources.html</loc></url>
-<url><loc>https://usaipa.org/map.html</loc></url>
-<url><loc>https://usaipa.org/register.html</loc></url>
-<url><loc>https://usaipa.org/order.html</loc></url>
-<url><loc>https://usaipa.org/faq.html</loc></url>
+<url><loc>https://usaipa.org/</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/mission.html</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/book.html</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/faq.html</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/sources.html</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/map.html</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/register.html</loc><lastmod>2026-09-28</lastmod></url>
+<url><loc>https://usaipa.org/order.html</loc><lastmod>2026-09-28</lastmod></url>
 </urlset>

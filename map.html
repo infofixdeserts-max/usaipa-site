@@ -6,13 +6,18 @@
 <title>The Context Map | The Independent Parties of America</title>
 <meta name="description" content="Search the public registry of community holistic contexts. Find which cities, counties, states, and national levels are registered, what they say, and which levels are unlocked.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://usaipa.org/map.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Independent Parties of America">
 <meta property="og:title" content="The Context Map | The Independent Parties of America">
-<meta property="og:description" content="Search the public registry of community holistic contexts by place and level.">
+<meta property="og:description" content="Search the public registry of community holistic contexts. Find which cities, counties, states, and national levels are registered, what they say, and which levels are unlocked.">
 <meta property="og:url" content="https://usaipa.org/map.html">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://usaipa.org/map.html">
+<meta property="og:image" content="https://usaipa.org/images/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Context Map | The Independent Parties of America">
+<meta name="twitter:description" content="Search the public registry of community holistic contexts. Find which cities, counties, states, and national levels are registered, what they say, and which levels are unlocked.">
+<meta name="twitter:image" content="https://usaipa.org/images/og-cover.jpg">
 <style>
   :root{
     --paper:#FCF8EF; --panel:#FFFDF6; --ink:#2B2622; --deep:#3F3527; --faint:#7A7166;
@@ -82,6 +87,8 @@
     background:var(--rust); color:#FCF8EF; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:14px;}
 
   footer.site{margin-top:44px; padding:24px 0 32px; border-top:2px solid var(--rule); color:var(--faint); font-size:14px;}
+  nav.main a.cta{background:var(--rust); color:var(--paper); border:1.6px solid var(--deep);}
+  nav.main a.cta:hover{border:1.6px solid var(--deep); background:var(--rust);}
 </style>
 </head>
 <body>
@@ -89,14 +96,15 @@
   <a class="brand" href="/"><img src="/favicon.svg" alt="IPA mark">
     <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span></a>
   <nav class="main">
-    <a href="/">Home</a>
-    <a href="/book.html">The Book</a>
-    <a href="/sources.html">Sources</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/map.html" class="here">Context Map</a>
-    <a href="/register.html">Register</a>
-    <a href="/order.html">Order</a>
-  </nav>
+      <a href="/">Home</a>
+      <a href="/mission.html">Mission</a>
+      <a href="/book.html">The Book</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/sources.html">Sources by State</a>
+      <a href="/map.html" class="here">Context Map</a>
+      <a href="/register.html">Register a Context</a>
+      <a href="/order.html" class="cta">Order</a>
+    </nav>
 </div></header>
 <main class="wrap">
 
@@ -230,6 +238,10 @@ loadReg = loadReg || null;
 <footer class="site"><div class="wrap">
   <p>Founded on the Constitution and the Bill of Rights | Governed by the written word of its communities | Book by Rodger R Savory</p>
   <p>Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+
+  <p class="small"><a href="/">Home</a>. <a href="/mission.html">Mission</a>. <a href="/book.html">The Book</a>. <a href="/faq.html">FAQ</a>. <a href="/sources.html">Sources by State</a>. <a href="/order.html">Order</a>.</p>
 </div></footer>
+<script data-goatcounter="https://usaipa.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

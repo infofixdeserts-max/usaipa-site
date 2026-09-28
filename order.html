@@ -8,6 +8,16 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://usaipa.org/order.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Independent Parties of America">
+<meta property="og:title" content="Order | The Independent Parties of America">
+<meta property="og:description" content="Order The Independent Parties of America: digital edition, paperback, or community registration fee. Secure checkout on usaipa.org.">
+<meta property="og:url" content="https://usaipa.org/order.html">
+<meta property="og:image" content="https://usaipa.org/images/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Order | The Independent Parties of America">
+<meta name="twitter:description" content="Order The Independent Parties of America: digital edition, paperback, or community registration fee. Secure checkout on usaipa.org.">
+<meta name="twitter:image" content="https://usaipa.org/images/og-cover.jpg">
 <style>
   :root{
     --paper:#FCF8EF; --panel:#FFFDF6; --ink:#2B2622; --deep:#3F3527; --faint:#7A7166;
@@ -51,6 +61,8 @@
   footer.site{margin-top:40px; padding:22px 0 30px; border-top:2px solid var(--rule); color:var(--faint); font-size:14px;}
   .trust{display:flex; gap:16px; flex-wrap:wrap; margin-top:12px;}
   .trust span{font-size:13px; color:var(--faint); border:1.4px solid var(--rule); border-radius:99px; padding:4px 12px;}
+  nav.main a.cta{background:var(--rust); color:var(--paper); border:1.6px solid var(--deep);}
+  nav.main a.cta:hover{border:1.6px solid var(--deep); background:var(--rust);}
 </style>
 </head>
 <body>
@@ -58,21 +70,22 @@
   <a class="brand" href="/"><img src="/favicon.svg" alt="IPA mark">
     <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span></a>
   <nav class="main">
-    <a href="/">Home</a>
-    <a href="/book.html">The Book</a>
-    <a href="/sources.html">Sources</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/map.html">Context Map</a>
-    <a href="/register.html">Register</a>
-    <a href="/order.html" class="here">Order</a>
-  </nav>
+      <a href="/">Home</a>
+      <a href="/mission.html">Mission</a>
+      <a href="/book.html">The Book</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/sources.html">Sources by State</a>
+      <a href="/map.html">Context Map</a>
+      <a href="/register.html">Register a Context</a>
+      <a href="/order.html" class="here cta">Order</a>
+    </nav>
 </div></header>
 <main class="wrap">
 <h1>Order</h1>
 <p class="sub">Pick your edition. Checkout is handled for you on this page - you never leave usaipa.org.</p>
 
 <div class="card coverbox">
-  <img class="cover" id="coverImg" src="/images/cover_front.png" alt="Book cover: The Independent Parties of America">
+  <img class="cover" id="coverImg" src="/images/cover.webp" alt="Book cover: The Independent Parties of America">
   <div>
     <h2 style="color:var(--deep)">The Independent Parties of America</h2>
     <p class="fmt">A Third Foundation for the Discarded Half</p>
@@ -112,6 +125,8 @@
 <footer class="site"><div class="wrap">
   <p class="fmt">The Independent Parties of America | Founded on the Constitution and the Bill of Rights | Governed by the written word of its communities</p>
   <p class="fmt"><a href="/">Home</a> | <a href="/book.html">The Book</a> | <a href="/sources.html">Sources</a> | <a href="/map.html">Map</a> | <a href="/register.html">Register</a></p>
+
+  <p class="small"><a href="/">Home</a>. <a href="/mission.html">Mission</a>. <a href="/book.html">The Book</a>. <a href="/faq.html">FAQ</a>. <a href="/sources.html">Sources by State</a>. <a href="/order.html">Order</a>.</p>
 </div></footer>
 <script>
 const PRODUCTS = {
@@ -139,5 +154,7 @@ document.getElementById("checkoutBtn").addEventListener("click", ()=>{
 });
 if(params.get("product") && !(PRODUCTS[params.get("product")] || {}).external) { pick(params.get("product")); }
 </script>
+<script data-goatcounter="https://usaipa.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
