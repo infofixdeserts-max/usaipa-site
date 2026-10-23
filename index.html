@@ -8,6 +8,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://usaipa.org/">
+<link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Independent Parties of America">
 <meta property="og:title" content="The Independent Parties of America | A Third Foundation for the Discarded Half">
@@ -20,9 +21,12 @@
 <meta name="twitter:image" content="https://usaipa.org/images/og-cover.jpg">
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org","@type":"Organization",
-  "name":"The Independent Parties of America","url":"https://usaipa.org/",
-  "logo":"https://usaipa.org/favicon.svg","image":"https://usaipa.org/images/og-cover.jpg",
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"The Independent Parties of America",
+  "url":"https://usaipa.org/",
+  "logo":"https://usaipa.org/favicon.svg",
+  "image":"https://usaipa.org/images/og-cover.jpg",
   "description":"A third party built on community holistic contexts, with a fifty-state ballot access field guide.",
   "founder":{"@type":"Person","name":"Rodger R Savory"}
 }
@@ -36,137 +40,235 @@
   "publisher":{"@type":"Organization","name":"The Independent Parties of America","founder":{"@type":"Person","name":"Rodger R Savory"}}
 }
 </script>
-
-
-
-<style>
-  :root{
-    --paper:#FCF8EF; --panel:#FFFDF6; --ink:#2B2622; --deep:#3F3527; --faint:#7A7166;
-    --rule:#B9AD9C; --rust:#9A3C22; --blue:#3E5C76; --gold:#C8A028;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--paper); color:var(--ink);
-    font-family:Georgia,'Times New Roman',serif; line-height:1.65; font-size:17px;}
-  a{color:var(--rust);}
-  .wrap{max-width:1060px; margin:0 auto; padding:0 22px;}
-  header.site{padding:26px 0 18px; border-bottom:2px solid var(--rule); background:var(--paper);}
-  .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
-  .brand img{width:52px; height:52px;}
-  .brand .t{color:var(--deep); font-weight:bold; font-size:20px; letter-spacing:.4px; line-height:1.15;}
-  .brand .t small{display:block; color:var(--faint); font-weight:normal; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase;}
-  nav.main{margin-top:16px; display:flex; flex-wrap:wrap; gap:4px 18px; font-size:15px;}
-  nav.main a{color:var(--deep); text-decoration:none; padding:6px 10px; border:1.6px solid transparent;}
-  nav.main a:hover{border:1.6px solid var(--rust);}
-  nav.main a.here{border:1.6px solid var(--rule);}
-  nav.main a.cta{background:var(--rust); color:var(--paper); border:1.6px solid var(--deep);}
-  nav.main a.cta:hover{border:1.6px solid var(--deep);}
-  .sketch{position:relative;}
-  .sketch::before{content:""; position:absolute; inset:-4px; border:1.5px solid var(--rule);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; pointer-events:none; opacity:.65;}
-  .card{background:var(--panel); border:1.5px solid var(--rule);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; padding:22px 24px; margin:22px 0;}
-  h1,h2,h3{color:var(--deep); font-weight:bold; line-height:1.2;}
-  h1{font-size:40px; margin:38px 0 8px;}
-  h2{font-size:26px; margin:30px 0 10px;}
-  h3{font-size:19px; margin:18px 0 6px;}
-  .sub{color:var(--rust); font-style:italic; font-size:19px; margin-bottom:16px;}
-  p{margin:0 0 14px;}
-  .btn{display:inline-block; padding:11px 22px; margin:6px 8px 6px 0; text-decoration:none; font-weight:bold;
-    color:var(--paper); background:var(--rust); border:1.5px solid var(--deep);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; box-shadow:2px 3px 0 rgba(63,53,39,.35);}
-  .btn.alt{background:var(--blue);}
-  .btn.ghost{background:transparent; color:var(--deep);}
-  .rule-line{border:none; border-top:2px solid var(--rule); margin:30px auto; width:120px;}
-  footer.site{margin-top:60px; padding:26px 0 40px; border-top:2px solid var(--rule);
-    color:var(--faint); font-size:14px;}
-  .share a{margin-right:14px; text-decoration:none;}
-  .stategrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px;}
-  .stategrid a{display:block; padding:7px 10px; text-decoration:none; color:var(--deep);
-    background:var(--panel); border:1.3px solid var(--rule);
-    border-radius:255px 15px 225px 15px/15px 225px 15px 255px; font-size:14.5px;}
-  .stategrid a:hover{border-color:var(--rust);}
-  table.src{width:100%; border-collapse:collapse; font-size:15px;}
-  table.src td, table.src th{border-bottom:1px solid var(--rule); padding:8px 6px; text-align:left; vertical-align:top;}
-  table.src a{word-break:break-all;}
-  .lvl{font-weight:bold;}
-  .ok{color:#3F6C3F;} .lock{color:var(--rust);}
-  .small{font-size:13.5px; color:var(--faint);}
-</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Book",
+  "name":"The Independent Parties of America",
+  "alternativeHeadline":"A Third Foundation for the Discarded Half",
+  "author":{"@type":"Person","name":"Rodger R Savory"},
+  "bookFormat":"https://schema.org/Paperback",
+  "numberOfPages":80,
+  "inLanguage":"en",
+  "url":"https://usaipa.org/book.html",
+  "image":"https://usaipa.org/images/cover.webp",
+  "description":"A field manual for a third party built on authored community contexts, seven honest questions, and fail-safe clauses, with a fifty-state ballot access annex.",
+  "offers":{"@type":"Offer","price":"12.98","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://usaipa.org/order.html"}
+}
+</script>
 </head>
 <body>
-<header class="site"><div class="wrap">
-  <a class="brand" href="/">
-    <img src="/favicon.svg" alt="IPA mark">
-    <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
-  </a>
-  <nav class="main">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="bunting" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="headrow">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" alt="" width="46" height="46">
+        <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
+      </a>
+      <a class="btn small order" href="/order.html">Order the book</a>
+    </div>
+    <nav class="main" aria-label="Main">
       <a href="/" class="here">Home</a>
+      <a href="/how-it-works.html">How it works</a>
       <a href="/mission.html">Mission</a>
       <a href="/book.html">The Book</a>
       <a href="/faq.html">FAQ</a>
       <a href="/sources.html">Sources by State</a>
       <a href="/map.html">Context Map</a>
       <a href="/register.html">Register a Context</a>
-            <a href="/run-for-office.html">Run for Office</a>
-      <a href="/order.html" class="cta">Order</a>
+      <a href="/run-for-office.html">Run for Office</a>
     </nav>
-</div></header>
-<main class="wrap">
+  </div>
+</header>
 
-<div style="display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap;">
-  <img src="/images/cover.webp" width="750" height="1110" alt="The Independent Parties of America book cover" style="width:230px; height:auto; border-radius:6px; box-shadow:0 12px 30px rgba(63,53,39,.3); border:1px solid #B9AD9C; margin-top:18px;">
-  <div style="flex:1; min-width:280px;">
-<h1 style="margin-top:22px;">Half of America has no voice.</h1></div></div>
-<p class="sub">Not because it is silent, but because it was never offered a sentence worth signing.</p>
-<div class="card sketch">
-<p><strong>The Independent Parties of America (IPA)</strong> is proposed as a truly independent party in American politics.
-Its foundation is the Constitution of the United States and the Bill of Rights, held as the highest law of the land
-and as the shared property of every faction within it.</p>
-<p>Its method is a body of practice called <strong>holistic management</strong>, adapted from the working 
-to the way people govern themselves. Its one requirement to run is not wealth, family name, or famous backers.
-It is <strong>authorship</strong>: to run on the IPA ticket, you must have helped write your community's own
-statement of how it wants to live.</p>
-<p><a class="btn" href="/book.html">Read the book</a>
-<a class="btn alt" href="/register.html">Register your community's context</a>
-<a class="btn ghost" href="/map.html">See the context map</a></p>
-</div>
-<p class="small">80 pages. 11 chapters. 50 states. 7 honest questions.</p>
-<h2>The mission</h2>
-<div class="card"><p>The IPA exists because the half of America that stays home was never offered a
-sentence worth signing. Its foundation is the Constitution and the Bill of Rights, and its one
-requirement to run is authorship: you must have helped write your community's own statement of how it
-wants to live. <a href="/mission.html">Read the full mission</a>.</p></div>
-<h2>How it works, in four moves</h2>
-<div class="card"><h3>1. Write the context</h3>
-<p>A community answers three questions in writing: how do the people want their lives to be, what has to be
-produced to live such lives, and what must the land, water and soil look like hundreds of years from now.
-No candidates, no parties, no policies. Consensus, not compromise.</p></div>
-<div class="card"><h3>2. Elect the author</h3>
-<p>People who helped write a community context may run on the IPA ticket. The community votes, and its elected
-representative carries the context to the next table up: city, county, state, nation.</p></div>
-<div class="card"><h3>3. Test every policy</h3>
-<p>Seven honest questions, run in order, judge every policy a candidate creates or votes on. Most proposed
-laws fail at question one. A decision that passes all seven is usually a good one.</p></div>
-<div class="card"><h3>4. Fail safe</h3>
-<p>Every policy carries a fail-safe clause written in advance: the moment an unintended negative consequence
-is confirmed, the policy is void and must be re-debated from scratch, in public.</p></div>
-<p><a class="btn" href="/order.html">Order the digital edition - $4.99</a>
-<a class="btn alt" href="/order.html">Order the paperback - $12.98</a></p>
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A field manual for the discarded half</p>
+        <h1>Half of America has no voice.</h1>
+        <p class="lede">Not because it is silent, but because it was never offered a sentence worth signing.</p>
+        <p>The <strong>Independent Parties of America</strong> is proposed as a truly independent party, founded on the
+        Constitution and the Bill of Rights. Its method is holistic management, adapted from the working land to the way
+        people govern themselves. Its one requirement to run is not wealth or a famous name. It is
+        <strong>authorship</strong>: you must have helped write your community's own statement of how it wants to live.</p>
+        <div class="btnrow">
+          <a class="btn" href="/how-it-works.html">See how it works</a>
+          <a class="btn alt" href="/register.html">Register your context</a>
+          <a class="btn ghost" href="/book.html">Read the book</a>
+        </div>
+        <div class="meta-line">
+          <span>80 pages</span><span>11 chapters</span><span>50 states</span><span>7 questions</span>
+        </div>
+      </div>
+      <div class="cover-frame">
+        <img src="/images/cover.webp" width="750" height="1110" alt="Cover of The Independent Parties of America by Rodger R Savory">
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" style="background:var(--paper-2); border-top:1.5px solid var(--rule); border-bottom:1.5px solid var(--rule);">
+    <div class="wrap">
+      <p class="eyebrow blue">The method in one picture</p>
+      <h2 style="font-size:clamp(26px,3vw,34px); max-width:22ch;">Four moves, then a test that anyone can run.</h2>
+      <p class="lede" style="max-width:62ch; margin-top:10px;">A community writes the life it wants. Authors carry it
+      upward. Every policy then faces the same seven questions, in the same order, in public.</p>
+
+      <div class="flow-wrap">
+        <div class="flow">
+          <div class="step">
+            <span class="step-num">1</span>
+            <h3>Write the context</h3>
+            <p>The community answers three questions in writing: how people want their lives to be, what must be
+            produced to live that way, and what the land, water and soil must look like centuries from now.</p>
+            <span class="tag">Consensus, not compromise</span>
+          </div>
+          <div class="step blue">
+            <span class="step-num">2</span>
+            <h3>Elect the author</h3>
+            <p>Only people who helped write the context may run on the IPA ticket. The community votes, and its
+            representative carries that written word to the next table up: city, county, state, nation.</p>
+            <span class="tag">Authorship is the price of entry</span>
+          </div>
+          <div class="step gold">
+            <span class="step-num">3</span>
+            <h3>Test every policy</h3>
+            <p>Seven honest questions, asked in order, judge every policy a candidate writes or votes on. Most
+            proposals fail at question one, because they treat a symptom while the cause keeps its lobby.</p>
+            <span class="tag">Public property, any voter can run them</span>
+          </div>
+          <div class="step green">
+            <span class="step-num">4</span>
+            <h3>Fail safe</h3>
+            <p>Every policy carries a fail-safe clause written in advance. The moment an unintended consequence is
+            confirmed, the policy is void and goes back to public debate from scratch.</p>
+            <span class="tag">Harm is expected, not excused</span>
+          </div>
+        </div>
+
+        <div class="decision">
+          <div class="q">Did the policy pass all seven?</div>
+          <div class="outcomes">
+            <div class="outcome no">
+              <span class="mark" aria-hidden="true">&#215;</span>
+              <div><strong>No</strong>It dies in the open, before it costs anyone a decade.</div>
+            </div>
+            <div class="outcome yes">
+              <span class="mark" aria-hidden="true">&#10003;</span>
+              <div><strong>Yes</strong>It stands with its fail-safe clause attached and its reasoning on the record.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btnrow" style="margin-top:26px;">
+        <a class="btn ghost" href="/how-it-works.html">Read the full explainer</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The seven questions</p>
+      <h2 style="font-size:clamp(26px,3vw,34px);">Hard to fool, easy to check.</h2>
+      <p class="lede" style="max-width:64ch; margin-top:10px;">They come from four decades of decisions about land,
+      money, animals and human communities. They are not a philosophy test. They are an order of operations.</p>
+      <div class="qlist">
+        <div class="qitem"><span class="n">1</span><div><h4>Cause and effect</h4><p>Does this action address the root cause of the problem?</p></div></div>
+        <div class="qitem"><span class="n">2</span><div><h4>The weak link</h4><p>Does it strengthen the weakest link in the chain toward the community's quality of life?</p></div></div>
+        <div class="qitem"><span class="n">3</span><div><h4>Marginal reaction</h4><p>Of the time and money spent, which choice returns the most on the next dollar and the next hour?</p></div></div>
+        <div class="qitem"><span class="n">4</span><div><h4>Gross profit</h4><p>Which enterprise goes furthest toward covering the overhead the community carries?</p></div></div>
+        <div class="qitem"><span class="n">5</span><div><h4>Energy and money</h4><p>Where do the energy and the money come from, where do they go, and is the power addictive in use?</p></div></div>
+        <div class="qitem"><span class="n">6</span><div><h4>Sustainability</h4><p>Does it move toward the future resource base the community wrote down?</p></div></div>
+        <div class="qitem"><span class="n">7</span><div><h4>Society and culture</h4><p>How do you feel about it now, and will it harm the lives of people outside the community?</p></div></div>
+        <div class="qitem" style="border-top-color:var(--gold);"><span class="n" style="color:var(--gold-dark);">&#8594;</span><div><h4>Any policy, any voter</h4><p>The seven are public property. Run a bill through them yourself and watch what happens.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap grid-2">
+      <div class="panel">
+        <p class="eyebrow blue">Why a third foundation</p>
+        <h3 style="font-size:22px; margin-bottom:8px;">Roughly half of eligible voters skip most elections.</h3>
+        <p style="font-size:16px;">They are not lazy. They have been offered the same two choices for decades, and
+        neither one asked them to author anything. A ballot with nothing of yours on it is a ballot you can skip
+        without guilt.</p>
+        <p class="small" style="margin-top:12px;"><a href="/mission.html">Read the full mission</a></p>
+      </div>
+      <div class="panel">
+        <p class="eyebrow blue">Where it starts</p>
+        <h3 style="font-size:22px; margin-bottom:8px;">One county seat, not one capital.</h3>
+        <p style="font-size:16px;">The first races are local, winnable and visible: school board, county commission,
+        small city mayor. One officeholder whose published record shows the seven questions used in office is worth
+        more than a thousand national arguments online.</p>
+        <p class="small" style="margin-top:12px;"><a href="/run-for-office.html">How to run on the IPA ticket</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Get the field manual</h2>
+          <p>80 pages, 11 chapters, a fifty state ballot access annex with cited sources, and the seven questions in
+          full. Digital edition $4.99. Paperback $12.98.</p>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="/order.html">Order now</a>
+          <a class="btn ghost" href="/faq.html">Read the FAQ</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
-<footer class="site"><div class="wrap">
-  <div class="share">
-    <a href="https://twitter.com/intent/tweet?text=The%20Independent%20Parties%20of%20America%20-%20a%20third%20foundation%20for%20the%20discarded%20half&url=https://usaipa.org">Share on X</a>
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org">Share on LinkedIn</a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://usaipa.org">Share on Facebook</a>
-  </div>
-  <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its communities.
-  Book by Rodger R Savory. Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
 
-  <p class="small"><a href="/">Home</a>. <a href="/mission.html">Mission</a>. <a href="/book.html">The Book</a>. <a href="/faq.html">FAQ</a>. <a href="/sources.html">Sources by State</a>. <a href="/order.html">Order</a>.</p>
-</div></footer>
-<script data-goatcounter="https://usaipa.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Independent Parties of America</h4>
+        <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its
+        communities. Book by Rodger R Savory.</p>
+        <div class="share">
+          <a href="https://twitter.com/intent/tweet?text=The%20Independent%20Parties%20of%20America%20-%20a%20third%20foundation%20for%20the%20discarded%20half&url=https://usaipa.org">Share on X</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org">Share on LinkedIn</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://usaipa.org">Share on Facebook</a>
+        </div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <div class="foot-links">
+          <a href="/how-it-works.html">How it works</a>
+          <a href="/mission.html">Mission</a>
+          <a href="/book.html">The Book</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/run-for-office.html">Run for Office</a>
+        </div>
+      </div>
+      <div>
+        <h4>Take part</h4>
+        <div class="foot-links">
+          <a href="/order.html">Order the book</a>
+          <a href="/register.html">Register a Context</a>
+          <a href="/map.html">Context Map</a>
+          <a href="/sources.html">Sources by State</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p class="small" style="margin:0;">Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+      <p class="small" style="margin:0;"><a href="https://usaipa.org">usaipa.org</a></p>
+    </div>
+  </div>
+</footer>
+
+<script data-goatcounter="https://usaipa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works | The Independent Parties of America</title>
+<meta name="description" content="The IPA method in one picture: a community writes its context, authors carry it upward, seven honest questions test every policy, and a fail-safe clause voids what goes wrong.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://usaipa.org/how-it-works.html">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Independent Parties of America">
+<meta property="og:title" content="How It Works | The Independent Parties of America">
+<meta property="og:description" content="Four moves and seven questions. The whole method on one page.">
+<meta property="og:url" content="https://usaipa.org/how-it-works.html">
+<meta property="og:image" content="https://usaipa.org/images/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://usaipa.org/images/og-cover.jpg">
+<style>
+  /* page specific: the full cycle diagram */
+  .cycle{display:grid; grid-template-columns:repeat(5,1fr); gap:20px; margin:12px 0 0;}
+  .node{
+    position:relative; background:var(--panel); border:1.5px solid var(--rule); border-radius:14px;
+    padding:20px 18px 18px; box-shadow:var(--shadow-sm);
+  }
+  .node .k{
+    font-family:var(--sans); font-size:10.5px; font-weight:700; letter-spacing:1.4px;
+    text-transform:uppercase; color:var(--rust); display:block; margin-bottom:6px;
+  }
+  .node h3{font-size:16.5px; margin-bottom:6px;}
+  .node p{font-size:14px; color:var(--faint); margin:0;}
+  .node:not(:last-child)::after{
+    content:""; position:absolute; top:50%; right:-20px; width:20px; height:9px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='9'><path d='M0 3.7h13V0l7 4.5-7 4.5V5.3H0z' fill='%23B9AD9C'/></svg>") no-repeat center / contain;
+  }
+  .return{
+    margin-top:22px; border:1.5px dashed var(--rule-strong); border-radius:14px;
+    background:var(--paper-2); padding:16px 22px; display:flex; align-items:center; gap:16px;
+    font-size:15px; color:var(--deep);
+  }
+  .return .arrowback{
+    flex:none; width:34px; height:22px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='22'><path d='M34 4.5H9V0L0 8l9 8v-4.5h25z' fill='%239A3C22'/></svg>") no-repeat center / contain;
+  }
+  .stage{display:grid; grid-template-columns:96px 1fr; gap:26px; align-items:start; padding:26px 0; border-top:1px solid var(--rule);}
+  .stage .big{
+    font-family:var(--serif); font-size:44px; font-weight:bold; color:var(--rule-strong);
+    line-height:1; padding-top:2px;
+  }
+  .stage h3{font-size:22px; margin-bottom:8px;}
+  .stage p{font-size:16.5px;}
+  .stage .detail{font-size:15px; color:var(--faint);}
+  .qfull{display:grid; gap:18px; margin-top:26px;}
+  .qfull .card{
+    background:var(--panel); border:1.5px solid var(--rule); border-radius:14px; padding:24px 26px;
+    box-shadow:var(--shadow-sm); display:grid; grid-template-columns:52px 1fr; gap:20px; align-items:start;
+  }
+  .qfull .num{
+    width:44px; height:44px; border-radius:50%; background:var(--rust); color:var(--paper);
+    display:grid; place-items:center; font-family:var(--sans); font-weight:700; font-size:17px;
+  }
+  .qfull h3{font-size:20px; margin-bottom:6px;}
+  .qfull .ask{font-size:16.5px; color:var(--deep); margin-bottom:8px;}
+  .qfull .why{font-size:15px; color:var(--faint); margin:0;}
+  .qfull ul{margin:8px 0 0 18px; padding:0; font-size:14.5px; color:var(--faint);}
+  .qfull li{margin-bottom:4px;}
+  @media (max-width:980px){
+    .cycle{grid-template-columns:1fr 1fr;}
+    .node:not(:last-child)::after{display:none;}
+  }
+  @media (max-width:720px){
+    .cycle{grid-template-columns:1fr;}
+    .return{flex-direction:column; align-items:flex-start; gap:10px;}
+    .stage{grid-template-columns:1fr; gap:8px;}
+    .stage .big{font-size:34px;}
+    .qfull .card{grid-template-columns:1fr; gap:12px;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="bunting" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="headrow">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" alt="" width="46" height="46">
+        <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
+      </a>
+      <a class="btn small order" href="/order.html">Order the book</a>
+    </div>
+    <nav class="main" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/how-it-works.html" class="here">How it works</a>
+      <a href="/mission.html">Mission</a>
+      <a href="/book.html">The Book</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/sources.html">Sources by State</a>
+      <a href="/map.html">Context Map</a>
+      <a href="/register.html">Register a Context</a>
+      <a href="/run-for-office.html">Run for Office</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="tight" style="padding-top:44px;">
+    <div class="wrap">
+      <p class="eyebrow">The whole method on one page</p>
+      <h1 style="font-size:clamp(32px,4.4vw,50px); max-width:20ch;">How it works</h1>
+      <p class="lede" style="max-width:66ch; margin-top:14px;">No permission is required to start. A community writes
+      down the life it wants, candidates earn the ticket by helping write it, and every policy they touch is tested in
+      public by the same seven questions, with a fail-safe clause attached in advance.</p>
+    </div>
+  </section>
+
+  <section class="tight" style="background:var(--paper-2); border-top:1.5px solid var(--rule); border-bottom:1.5px solid var(--rule);">
+    <div class="wrap">
+      <p class="eyebrow blue">The full cycle</p>
+      <h2 style="font-size:clamp(24px,2.8vw,32px); margin-bottom:6px;">A loop, not a ladder</h2>
+      <p style="max-width:64ch; color:var(--faint); margin-bottom:26px;">Each election feeds the next context. The
+      record is public, so the community audits its own representative instead of trusting a party office.</p>
+
+      <div class="cycle">
+        <div class="node">
+          <span class="k">First</span>
+          <h3>The context</h3>
+          <p>The community writes three answers: the life wanted, what must be produced, the land in a hundred years.</p>
+        </div>
+        <div class="node">
+          <span class="k">Then</span>
+          <h3>The authors</h3>
+          <p>Only people who helped write it may run. The community votes for one of its own authors.</p>
+        </div>
+        <div class="node">
+          <span class="k">In office</span>
+          <h3>The policies</h3>
+          <p>Every bill the representative writes or votes on goes through the seven questions, in order, on the record.</p>
+        </div>
+        <div class="node">
+          <span class="k">The test</span>
+          <h3>The seven</h3>
+          <p>Cause, weak link, marginal return, gross profit, energy and money, sustainability, society and culture.</p>
+        </div>
+        <div class="node">
+          <span class="k">After</span>
+          <h3>The fail-safe</h3>
+          <p>Confirmed harm voids the policy. It returns to public debate from scratch, not to a committee drawer.</p>
+        </div>
+      </div>
+
+      <div class="return">
+        <span class="arrowback" aria-hidden="true"></span>
+        <span><strong>And back to the community.</strong> Every vote, every test, every fail-safe trigger is published
+        where the community can read it before the next election. The community, not headquarters, is the audit
+        committee.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">In detail</p>
+      <h2 style="font-size:clamp(24px,2.8vw,32px);">The four moves</h2>
+
+      <div class="stage">
+        <div class="big">01</div>
+        <div>
+          <h3>Write the context</h3>
+          <p>A community answers three questions in writing: how do the people want their lives to be, what has to be
+          produced to live such lives, and what must the land, water and soil look like hundreds of years from now.
+          No candidates, no parties, no policies in this step.</p>
+          <p class="detail">This is the step most political projects skip. A platform written for you is a menu
+          someone else chose. A context written by you is a sentence you can hold a candidate to.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="big">02</div>
+        <div>
+          <h3>Elect the author</h3>
+          <p>People who helped write a community context may run on the IPA ticket. The community votes, and its
+          elected representative carries that written word to the next table up: city, county, state, nation.</p>
+          <p class="detail">Authorship replaces the usual entry fees: wealth, family name, famous backers. It also
+          means a candidate cannot arrive from outside with a platform and a checkbook.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="big">03</div>
+        <div>
+          <h3>Test every policy</h3>
+          <p>Seven honest questions, run in order, judge every policy a candidate creates or votes on. Most proposed
+          laws fail at question one, because they were aimed at a symptom while the cause kept its lobby.</p>
+          <p class="detail">The questions are public property. Any voter can run them, any editor can run them, which
+          is what makes them inconvenient for the status quo.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="big">04</div>
+        <div>
+          <h3>Fail safe</h3>
+          <p>Every policy carries a fail-safe clause written in advance: the moment an unintended negative consequence
+          is confirmed, the policy is void and must be re-debated from scratch, in public.</p>
+          <p class="detail">The design assumes every law will cause harm somewhere. Planning for the surprise is the
+          difference between governing and defending a mistake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" style="background:var(--paper-2); border-top:1.5px solid var(--rule); border-bottom:1.5px solid var(--rule);">
+    <div class="wrap">
+      <p class="eyebrow blue">The testing process</p>
+      <h2 style="font-size:clamp(24px,2.8vw,32px);">The seven questions, in full</h2>
+      <p style="max-width:66ch; color:var(--faint); margin-top:10px;">Asked in this order. The order matters: each
+      question assumes the one before it was answered honestly.</p>
+
+      <div class="qfull">
+        <div class="card">
+          <span class="num">1</span>
+          <div>
+            <h3>Cause and effect</h3>
+            <p class="ask">Does this action address the root cause of the problem?</p>
+            <p class="why">A response to a symptom can be announced on Friday and forgotten by Monday. This question
+            forces the debate one level down, to where the actual problem lives.</p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">2</span>
+          <div>
+            <h3>The weak link</h3>
+            <p class="ask">Does this action strengthen the weakest link in the chain?</p>
+            <ul>
+              <li>Social form: does it create a weak link in the chain of actions toward the community's quality of life, given what people already believe?</li>
+              <li>Biological form: does it address the weakest point in the life cycle of the organism?</li>
+              <li>Financial form: does it strengthen the weakest link in the chain of production?</li>
+            </ul>
+            <p class="why" style="margin-top:8px;">Strengthening a strong link does nothing. Money spent on the middle
+            of a supply chain while the ends starve is money spent on the wrong link.</p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">3</span>
+          <div>
+            <h3>Marginal reaction</h3>
+            <p class="ask">Of the time and money this action costs, which choice gives the greatest return toward quality of life?</p>
+            <p class="why">Not the biggest total return. The return on the next dollar and the next hour, which is the
+            only return anyone can actually spend.</p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">4</span>
+          <div>
+            <h3>Gross profit analysis</h3>
+            <p class="ask">Which enterprise goes the most toward covering the overhead of the community?</p>
+            <p class="why">Every community carries shared costs: roads, schools, water, the fire hall, the courthouse
+            roof. Not every activity in the community covers its share of that load.</p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">5</span>
+          <div>
+            <h3>Energy and money, source and use</h3>
+            <p class="ask">Where do the energy and the money come from, and where do they go? Will the action move the community toward its quality of life goals?</p>
+            <p class="why">An action funded by money pulled out of the community is borrowing against the life it
+            claims to serve. And the power it creates must not be addictive in use.</p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">6</span>
+          <div>
+            <h3>Sustainability</h3>
+            <p class="ask">Does this move toward or away from the future resource base described in the community's context?</p>
+            <p class="why">A decision can pass every other test and fail here, because the resource base does not
+            argue back. It simply leaves.</p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="num">7</span>
+          <div>
+            <h3>Society and culture</h3>
+            <p class="ask">How do you feel about this action now? Will it lead to the quality of life your community desires, and will it adversely affect the lives of others?</p>
+            <p class="why">The gut check no spreadsheet can do, and the one that looks past the community's edge. An
+            action that helps at home and damages lives somewhere else has not passed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid-3">
+      <div class="panel">
+        <p class="eyebrow">Who can run</p>
+        <h3 style="font-size:20px; margin-bottom:8px;">Anyone who helped write it</h3>
+        <p style="font-size:15.5px;">No fee, no endorsement from a national office, no permission from a party
+        headquarters. The qualification is authorship of the community's own written context.</p>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">What it costs</p>
+        <h3 style="font-size:20px; margin-bottom:8px;">A tithe, not a donor</h3>
+        <p style="font-size:15.5px;">The party is funded by its own members, including a twenty percent tithe of party
+        income to administration, rather than by outside money that expects a return.</p>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">Where it starts</p>
+        <h3 style="font-size:20px; margin-bottom:8px;">One local office</h3>
+        <p style="font-size:15.5px;">School board, county commission, small city mayor. One honest officeholder with a
+        public record is the only foundation a national party can actually stand on.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Read it in full</h2>
+          <p>The book carries the method, the seven questions in their own chapter, the fail-safe design, and a fifty
+          state ballot access annex with cited sources.</p>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="/book.html">About the book</a>
+          <a class="btn ghost" href="/order.html">Order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Independent Parties of America</h4>
+        <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its
+        communities. Book by Rodger R Savory.</p>
+        <div class="share">
+          <a href="https://twitter.com/intent/tweet?text=How%20the%20Independent%20Parties%20of%20America%20work&url=https://usaipa.org/how-it-works.html">Share on X</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org/how-it-works.html">Share on LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <div class="foot-links">
+          <a href="/how-it-works.html">How it works</a>
+          <a href="/mission.html">Mission</a>
+          <a href="/book.html">The Book</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/run-for-office.html">Run for Office</a>
+        </div>
+      </div>
+      <div>
+        <h4>Take part</h4>
+        <div class="foot-links">
+          <a href="/order.html">Order the book</a>
+          <a href="/register.html">Register a Context</a>
+          <a href="/map.html">Context Map</a>
+          <a href="/sources.html">Sources by State</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p class="small" style="margin:0;">Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+      <p class="small" style="margin:0;"><a href="https://usaipa.org">usaipa.org</a></p>
+    </div>
+  </div>
+</footer>
+
+<script data-goatcounter="https://usaipa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

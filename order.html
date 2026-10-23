@@ -64,23 +64,32 @@
   nav.main a.cta{background:var(--rust); color:var(--paper); border:1.6px solid var(--deep);}
   nav.main a.cta:hover{border:1.6px solid var(--deep); background:var(--rust);}
 </style>
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<header class="site"><div class="wrap">
-  <a class="brand" href="/"><img src="/favicon.svg" alt="IPA mark">
-    <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span></a>
-  <nav class="main">
+<header class="site">
+  <div class="bunting" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="headrow">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" alt="" width="46" height="46">
+        <span class="t">Independent Parties of America<small>A third foundation for the discarded half</small></span>
+      </a>
+      <a class="btn small order" href="/order.html">Order the book</a>
+    </div>
+    <nav class="main" aria-label="Main">
       <a href="/">Home</a>
+      <a href="/how-it-works.html">How it works</a>
       <a href="/mission.html">Mission</a>
       <a href="/book.html">The Book</a>
       <a href="/faq.html">FAQ</a>
       <a href="/sources.html">Sources by State</a>
       <a href="/map.html">Context Map</a>
       <a href="/register.html">Register a Context</a>
-            <a href="/run-for-office.html">Run for Office</a>
-      <a href="/order.html" class="here cta">Order</a>
+      <a href="/run-for-office.html">Run for Office</a>
     </nav>
-</div></header>
+  </div>
+</header>
 <main class="wrap">
 <h1>Order</h1>
 <p class="sub">Pick your edition. Checkout is handled for you on this page - you never leave usaipa.org.</p>
@@ -123,12 +132,45 @@
   </ol>
 </div>
 
-<footer class="site"><div class="wrap">
-  <p class="fmt">The Independent Parties of America | Founded on the Constitution and the Bill of Rights | Governed by the written word of its communities</p>
-  <p class="fmt"><a href="/">Home</a> | <a href="/book.html">The Book</a> | <a href="/sources.html">Sources</a> | <a href="/map.html">Map</a> | <a href="/register.html">Register</a></p>
-
-  <p class="small"><a href="/">Home</a>. <a href="/mission.html">Mission</a>. <a href="/book.html">The Book</a>. <a href="/faq.html">FAQ</a>. <a href="/sources.html">Sources by State</a>. <a href="/order.html">Order</a>.</p>
-</div></footer>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Independent Parties of America</h4>
+        <p class="small">Founded on the Constitution and the Bill of Rights. Governed by the written word of its
+        communities. Book by Rodger R Savory.</p>
+        <div class="share">
+          <a href="https://twitter.com/intent/tweet?text=The%20Independent%20Parties%20of%20America&url=https://usaipa.org">Share on X</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://usaipa.org">Share on LinkedIn</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://usaipa.org">Share on Facebook</a>
+        </div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <div class="foot-links">
+          <a href="/how-it-works.html">How it works</a>
+          <a href="/mission.html">Mission</a>
+          <a href="/book.html">The Book</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/run-for-office.html">Run for Office</a>
+        </div>
+      </div>
+      <div>
+        <h4>Take part</h4>
+        <div class="foot-links">
+          <a href="/order.html">Order the book</a>
+          <a href="/register.html">Register a Context</a>
+          <a href="/map.html">Context Map</a>
+          <a href="/sources.html">Sources by State</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p class="small" style="margin:0;">Sources: Ballotpedia and each state's own election office. Rules change; verify before you file.</p>
+      <p class="small" style="margin:0;"><a href="https://usaipa.org">usaipa.org</a></p>
+    </div>
+  </div>
+</footer>
 <script>
 const PRODUCTS = {
   mirtav:    {url:"https://savoryhughs.gumroad.com/l/mirtav?embedded=true", name:"Digital edition"},
