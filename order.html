@@ -191,9 +191,7 @@ function pick(val){
   document.getElementById("co-frame").scrollIntoView({behavior:"smooth", block:"center"});
 }
 document.getElementById("checkoutBtn").addEventListener("click", ()=>{
-  const val = document.querySelector('input[name="ed"]:checked').value;
-  if(val === "amazonpb"){ window.open(PRODUCTS.amazonpb.url, "_blank", "noopener"); return; }
-  pick(val);
+  pick(document.querySelector('input[name="ed"]:checked').value);
 });
 if(params.get("product") && !(PRODUCTS[params.get("product")] || {}).external) { pick(params.get("product")); }
 </script>
