@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://usaipa.org/</loc><lastmod>2026-10-23</lastmod><priority>1.0</priority></url>
-<url><loc>https://usaipa.org/how-it-works.html</loc><lastmod>2026-10-23</lastmod><priority>0.9</priority></url>
-<url><loc>https://usaipa.org/mission.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
-<url><loc>https://usaipa.org/book.html</loc><lastmod>2026-10-23</lastmod><priority>0.9</priority></url>
-<url><loc>https://usaipa.org/order.html</loc><lastmod>2026-10-23</lastmod><priority>0.9</priority></url>
-<url><loc>https://usaipa.org/faq.html</loc><lastmod>2026-10-23</lastmod><priority>0.7</priority></url>
-<url><loc>https://usaipa.org/sources.html</loc><lastmod>2026-10-23</lastmod><priority>0.7</priority></url>
-<url><loc>https://usaipa.org/map.html</loc><lastmod>2026-10-23</lastmod><priority>0.6</priority></url>
-<url><loc>https://usaipa.org/register.html</loc><lastmod>2026-10-23</lastmod><priority>0.7</priority></url>
+<url><loc>https://usaipa.org/</loc><lastmod>2026-10-24</lastmod><priority>1.0</priority></url>
+<url><loc>https://usaipa.org/how-it-works.html</loc><lastmod>2026-10-24</lastmod><priority>0.9</priority></url>
+<url><loc>https://usaipa.org/mission.html</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
+<url><loc>https://usaipa.org/book.html</loc><lastmod>2026-10-24</lastmod><priority>0.9</priority></url>
+<url><loc>https://usaipa.org/order.html</loc><lastmod>2026-10-24</lastmod><priority>0.9</priority></url>
 <url><loc>https://usaipa.org/watch.html</loc><lastmod>2026-10-24</lastmod><priority>0.9</priority></url>
-<url><loc>https://usaipa.org/run-for-office.html</loc><lastmod>2026-10-23</lastmod><priority>0.7</priority></url>
+<url><loc>https://usaipa.org/faq.html</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
+<url><loc>https://usaipa.org/sources.html</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
+<url><loc>https://usaipa.org/map.html</loc><lastmod>2026-10-24</lastmod><priority>0.6</priority></url>
+<url><loc>https://usaipa.org/register.html</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
+<url><loc>https://usaipa.org/run-for-office.html</loc><lastmod>2026-10-24</lastmod><priority>0.7</priority></url>
+<url><loc>https://usaipa.org/privacy.html</loc><lastmod>2026-10-24</lastmod><priority>0.4</priority></url>
 </urlset>
